@@ -1,0 +1,218 @@
+﻿@model  IEnumerable<SafetyAndSecurityForNSI.Models.ForeignCitizenModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    <a href="/ForeignCitizen/Create" class="btn green"><i class="fa fa-plus"></i>Add New Citizen</a>
+</p>
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Citizen Name")
+            </th>
+            <th>
+                @Html.DisplayName("Father Name")
+            </th>
+            <th>
+                @Html.DisplayName("Mother Name")
+            </th>
+            <th>
+                @Html.DisplayName("Passport No")
+            </th>
+            <th>
+                @Html.DisplayName("Passport ImagCopy")
+            </th>
+            <th>
+                @Html.DisplayName("Country Name")
+            </th>
+            <th>
+                @Html.DisplayName("Age")
+            </th>
+            <th>
+                @Html.DisplayName("State")
+            </th>
+            <th>
+                @Html.DisplayName("Contact")
+            </th>
+            <th>
+                @Html.DisplayName("Presenr Address")
+            </th>
+            <th>
+                @Html.DisplayName("Relative Contact")
+            </th>
+            <th>
+                @Html.DisplayName("Police Clear")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Driving LicenceNo")
+            </th>
+            <th>
+                @Html.DisplayName("Driving Licence")
+            </th>
+            <th>
+                @Html.DisplayName("Police Entry No")
+            </th>
+            <th>
+                @Html.DisplayName("Person Image")
+            </th>
+
+            <th>
+                @Html.DisplayName("Post Code")
+            </th>
+            <th>
+                @Html.DisplayName("City")
+            </th>
+            <th>
+                @Html.DisplayName("Living Town")
+            </th>
+            <th>
+                @Html.DisplayName("Gender")
+            </th>
+            <th>
+                @Html.DisplayName("Marital Status")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CitizenName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassportNo)
+                </td>
+                <td>
+                    <img class="user-photo img-css" src="~/Image/ForeignCitizen/PersonImg/@item.PersonImage" width="50" height="50" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PresenrAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RelativeContact)
+                </td>
+                <td>
+                    <img class="user-photo img-css" src="~/Image/ForeignCitizen/PoliceClearance/@item.PoliceClearImg" width="50" height="50" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrivingLicenceNo)
+                </td>
+                <td>
+                    <img class="user-photo img-css" src="~/Image/ForeignCitizen/FDrivingLicence/@item.DLicenceCopy" width="50" height="50" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PoliceEntryNo)
+                </td>
+                <td>
+                    <img class="user-photo img-css" src="~/Image/ForeignCitizen/FPassport/@item.PassportImagCopy" width="50" height="50" />
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LivingTown)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaritalStatus)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ForignCitizenId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ForignCitizenId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ForignCitizenId })
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="row">
+        <div class="colxs-12 text-center">
+            @Html.Partial("_PagingPartial", Model)
+        </div>
+    </div>
+}
+else
+{
+    <h4>No record to display</h4>
+}
+
+<div>
+    @Html.ActionLink("Back", "AdminView", "DashBoard")
+</div>
+
+<script>
+    $("#autoComplete").autocomplete({
+        minLength: 10,
+        source: function (request, response) {
+            content = $.trim(request.term);
+            $.ajax({
+                url: '@Url.Action("SearchCarLoan", "ForeignCitizen")',
+                type: "POST",
+                dataType: "json",
+                data: { searchId: content },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return { label: item.PassportNo, value: item.PassportNo, id: item.ForignCitizenId };
+                    }))
+                }
+            });
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            isloadFirstTime = true;
+            var selectTextId = ui.item.id;
+            location.href = "/ForeignCitizen/Index?FCitizenId="+ selectTextId;
+        },
+    })
+ .keyup(function () {
+     if ($.trim($("#autoComplete").val()) == "") {
+         location.href = "/ForeignCitizen/Index";
+     }
+ })
+ .autocomplete("instance")._renderItem = function (ul, item) {
+     var term = $.trim(this.term);
+     var re = new RegExp("(" + term + ")", "gi"),
+                cls = "bold-text",
+                template = "<span class='" + cls + "'>$1</span>",
+                label = item.label.toString().replace(re, template),
+                $li = $("<li/>").appendTo(ul);
+     $("<span>").html(label).appendTo($li);
+     return $li;
+ };
+
+</script>

@@ -1,0 +1,107 @@
+﻿@model SafetyAndSecurityForNSI.Models.GovernmentJob
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/editor/ckeditor.js"></script>
+
+    <div class="form-horizontal" id="DivForJobValidation">
+        <h4 class="text-center">Government Job</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DepartmentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepartmentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Job_Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Job_Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Job_Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Save" onclick="SaveGovtJob()" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+
+    var editor = CKEDITOR.replace("Body");
+
+    var jobValidation = $("#DivForJobValidation").kendoValidator({
+        rules: {
+            Department: function (input) {
+                if (input.is("[name=DepartmentName]") && $("#DepartmentName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Title: function (input) {
+                if (input.is("[name=Job_Title]") && $("#Job_Title").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+              },
+        messages: {
+            Department: "*",
+            Title:"*"
+        }
+    }).data("kendoValidator");
+
+    function SaveGovtJob() {
+ if (jobValidation.validate()) {
+            var sendData = new FormData();
+            sendData.append("DepartmentName", $("#DepartmentName").val());
+            sendData.append("Job_Title", $("#Job_Title").val());
+            sendData.append("Body", $("#Body").val());
+         
+            $.ajax({
+                url: '@Url.Action("SaveJobEntry", "GovernmentJob")',
+                type: 'Post',
+                data: sendData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                    if (data === "Error") {
+                        alert("Failed");
+                       //notification.show("Adding new citizen was unsuccessful.", "upload-error");
+
+                    } else {
+                        //notification.show( "Local Citizen info has been successfully added.", "upload-success");
+                        location.href = "/GovernmentJob/Index";
+                    }
+                },
+                error: function (error) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                   // notification.show("Upload unsuccessful", "upload-warning");
+                    alert("Upload Failed");
+                }
+            });
+        }
+    }
+</script>

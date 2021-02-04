@@ -1,0 +1,329 @@
+﻿@model SafetyAndSecurityForNSI.ViewModel.PoliceClearanceViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@Html.HiddenFor(model => model.ThanaId)
+
+<div id="DivforPoliceClearanceUpdate">
+    <div class="row">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-12">
+            <div class="col-md-6 form-horizontal form-widget">
+                <div class="form-group">
+                    @Html.Label("Thana Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.ThanaName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ThanaName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Token Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.TokenNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TokenNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Thana Details", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.ThanaDetails, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ThanaDetails, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 form-horizontal form-widget">
+                <div class="col-md-6 col-sm-5 col-xs-8 divForPic" id="divForPic-0" style="margin-left:37%">
+                    <span id="UserImgClose-0" style="display:none;">
+                        <img src="~/Image/Blank/close_pic.png" class="previewImgClose" id="UserImgClose-0" data-count="0" />
+                    </span>
+                    <div id="imgPreview-0" class="imgPreview">
+                        <img src="~/Image/PoliceClearance/@Model.PoliceClearImg" />
+                    </div>
+                    <div id="imgUpload-0" class="image-uploader">
+                        <input type="file" name="files" id="file-0" class="inputfile inputfile-4" data-count="0" style="display:none;" />
+                        <label for="file-0" id="lbl-0" class="lblForPics">
+                            <span style="font-size: 26px;padding-top:1em;display:block;" class="lbl_Span_plus">+</span>
+                            <span style="font-size: 15px;font-weight:bold;">Add Clearance Photos</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-12" style="margin-top:50px;">
+            <div class="col-md-6  form-horizontal form-widget">
+                <div class="form-group">
+                    @Html.Label("Officer Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.OfficerName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OfficerName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("National ID", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="NID" name="NID" min="17" max="17" required class="form-control" />
+                        @Html.ValidationMessageFor(model => model.NID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 form-horizontal form-widget">
+                <div class="form-group">
+                    @Html.Label("Passport No", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="text" id="PassportNo" name="PassportNo" pattern="^[A-PR-WYa-pr-wy][1-8]\d\s?\d{4}[1-8]$" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Gender", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(mode => mode.Gender, new SelectList(ViewBag.GenderCategory, "Sex", "Sex"), ".....Select Gender.....", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group" style="margin-top:50px;">
+        <div class="col-md-offset-4 col-md-8">
+            <span class="btn btn-primary" id="PoliceClearanceUpdate"><i class="fa fa-save"></i>Save</span>
+            <span class="btn btn-warning" id="PoliceClearanceRefresh"><i class="fa fa-refresh"></i>Refresh</span>
+            <span class="btn btn-danger" id="PoliceClearanceCancel"><i class="fa fa-close"></i>Cancel</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var allMainFile = [];
+    var allFileCount = [];
+    var id;
+    var PictureName;
+       $(document).ready(function () {
+        if ('@Model.PoliceClearImg' != null || '@Model.PoliceClearImg' != '')
+        {
+            $("#imgPreview-0").show();
+            $("#UserImgClose-0").show();
+            $("#imgUpload-0").hide();
+        }
+    });
+    $('#PoliceClearanceRefresh').click(function () {
+        location.reload();
+    });
+    $('#PoliceClearanceCancel').click(function () {
+        location.href = '@Url.Action("Index", "PoliceClearance")';
+    });
+
+    $(".divForPic").on('change', '.inputfile-4', function (e) {
+        id = $(this).data("count");
+        var countFiles = $("#file-" + id)[0].files.length;
+        var imgPath = $("#file-" + id)[0].value;
+        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        var image_holder = $("#imgPreview-" + id);
+        var files = e.target.files;
+        image_holder.empty();
+        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+            if (typeof (FileReader) != "undefined") {
+                allFileCount.push(id);
+                allMainFile[id] = files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("<img />", { "src": e.target.result }).appendTo(image_holder);
+                }
+                $("#imgUpload-" + id).hide();
+                $("#UserImgClose-" + id).show();
+                image_holder.show();
+                $("#file-" + id).hide();
+                $("#lblfile-" + id).hide();
+                $("#PictureName").val($("#file-" + id)[0].files[0]);
+                reader.readAsDataURL($("#file-" + id)[0].files[0]);
+                $(".lbl_Span_plus").text("+");
+                id++;
+            } else {
+                alert("This browser does not support FileReader.");
+            }
+        } else {
+            alert("Pls select only images");
+        }
+    });
+
+    $(".divForPic").on('click', ".previewImgClose", function (e) {
+        var id = $(this).data("count");
+        allMainFile[id] = "";
+        $("#imgPreview-" + id).empty();
+        $("#imgPreview-" + id).hide();
+        $("#UserImgClose-" + id).hide();
+        $("#imgUpload-" + id).show();
+    });
+
+    var PoliceValidation = $("#DivforPoliceClearanceUpdate").kendoValidator({
+        rules: {
+            ThanaName: function (input) {
+                if (input.is("[name=ThanaName]") && $("#ThanaName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            TokenNumber: function (input) {
+                if (input.is("[name=TokenNumber]") && $("#TokenNumber").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            ThanaDetails: function (input) {
+                if (input.is("[name=ThanaDetails]") && $("#ThanaDetails").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            OfficerName: function (input) {
+                if (input.is("[name=OfficerName]") && $("#OfficerName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            ThanaName: function (input) {
+                if (input.is("[name=ThanaName]") && $("#ThanaName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Gender: function (select) {
+                if (select.is("[name=Gender]") && $("#Gender").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+        },
+        messages: {
+            ThanaName: "*",
+            TokenNumber: "*",
+            ThanaDetails: "*",
+            OfficerName: "*",
+            ThanaName: "*",
+            Gender: "*"
+        }
+    }).data("kendoValidator");
+
+
+
+    $("#PoliceClearanceUpdate").click(function () {
+        if (PoliceValidation.validate()) {
+        var sendData = new FormData();
+            sendData.append("ThanaId", $("#ThanaId").val());
+            sendData.append("ThanaName", $("#ThanaName").val());
+            sendData.append("TokenNumber", $("#TokenNumber").val());
+            sendData.append("ThanaDetails", $("#ThanaDetails").val());
+            sendData.append("OfficerName", $("#OfficerName").val());
+            sendData.append("NID", $("#NID").val());
+            sendData.append("PassportNo", $("#PassportNo").val());
+            sendData.append("Gender", $("#Gender").val());
+            for (var i = 0; i < allMainFile.length; i++) {
+                sendData.append("files[" + i + "]", allMainFile[i]);
+            }
+            $.ajax({
+                url:'@Url.Action("UpdatePoliceClearance", "PoliceClearance")',
+                type:'Post',
+                data:sendData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                    if (data === "Error") {
+                        alert("Failed");
+                       //notification.show("Adding new citizen was unsuccessful.", "upload-error");
+
+                    } else {
+                        //notification.show( "Local Citizen info has been successfully added.", "upload-success");
+                        alert("Success");
+                    }
+                },
+                error: function (error) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                   // notification.show("Upload unsuccessful", "upload-warning");
+                    alert("Upload Failed");
+                }
+            });
+        }
+    });
+
+</script>
+<style>
+    input:invalid {
+        box-shadow: 0 0 5px 1px red;
+    }
+
+    input:focus:invalid {
+        outline: none;
+    }
+    .image-uploader {
+        width: 200px;
+        height: 200px;
+        display: block;
+        text-align: center;
+    }
+
+    .imgPreview {
+        background-color: #e8e4d0;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #808080;
+        display: none;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+        .imgPreview img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            height: auto;
+        }
+
+    .lblForPics {
+        text-align: center;
+        max-width: 90%;
+        width: 200px;
+        height: 200px;
+        vertical-align: middle;
+        border: 1px dashed blue;
+    }
+
+        .lblForPics span {
+            color: #083bb5 !important;
+        }
+
+    .previewImgClose {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        float: right;
+        left: -1.5em;
+        bottom: 1.5em;
+        z-index: 9999;
+        margin-top: .3em;
+    }
+</style>

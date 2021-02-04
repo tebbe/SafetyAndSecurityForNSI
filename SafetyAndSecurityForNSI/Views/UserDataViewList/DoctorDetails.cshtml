@@ -1,0 +1,162 @@
+﻿@model SafetyAndSecurityForNSI.Models.DoctorsEntryModel
+
+@{
+    ViewBag.Title = "DoctorDetails";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>Doctor Details</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeThree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeThree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingInstitute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingInstitute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialTraining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialTraining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BMAMembershipNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BMAMembershipNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BranceCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranceCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MembershipCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MembershipCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BcsRegNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BcsRegNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-default" href="/UserDataViewList/HomeLoanList?NID=@Model.NID">Back To List</a>
+
+</p>

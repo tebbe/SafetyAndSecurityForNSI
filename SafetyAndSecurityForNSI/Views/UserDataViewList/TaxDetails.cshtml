@@ -1,0 +1,112 @@
+﻿@model SafetyAndSecurityForNSI.Models.TaxEntryModel
+
+@{
+    ViewBag.Title = "TaxDetails";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>Tax Details</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialSecurityNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialSecurityNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-default" href="/UserDataViewList/TaxList?NID=@Model.NID">Back To List</a>
+</p>

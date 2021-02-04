@@ -1,0 +1,185 @@
+﻿@model SafetyAndSecurityForNSI.Models.LocalCitizenModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CitizenName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CitizenName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BirthId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BirthId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FatherName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MotherName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MotherName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Division)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Division)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Contact)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Contact)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PresentAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PresentAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RelativeContact)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RelativeContact)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PassportNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PassportNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DrivingLicenceNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DrivingLicenceNo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Zilla)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Zilla)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Thana)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Thana)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Village)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Village)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PostOffice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PostOffice)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PersonImg)
+            </dt>
+
+            <dd>
+                <img class="user-photo img-view-css" src="~/Image/LocalCitizen/PersonImg/@Model.PersonImg" width="50" height="50" />
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DLicenceCopy)
+            </dt>
+
+            <dd>
+                <img class="user-photo img-licence-css" src="~/Image/LocalCitizen/DrivingLicence/@Model.DLicenceCopy" width="50" height="50" />
+            </dd>
+
+           
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,181 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.CarLoanModel>
+
+@{
+    ViewBag.Title = "CarLoanList";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>CarLoan List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CitizenName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresenrAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelativeContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSINumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanAmmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearlyIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkingAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyMembers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankStatement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CitizenName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FatherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Division)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresenrAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelativeContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSINumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanAmmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthlyIncome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearlyIncome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkingAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FamilyMembers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankStatement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Details", "CarLoanDetails", new { id=item.CarLoanId }) |
+           
+        </td>
+    </tr>
+}
+
+</table>

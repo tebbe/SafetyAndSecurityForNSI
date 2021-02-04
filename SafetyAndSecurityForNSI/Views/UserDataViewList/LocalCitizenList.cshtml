@@ -1,0 +1,155 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.LocalCitizenModel>
+
+@{
+    ViewBag.Title = "LocalCitizenList";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>Local Citizen</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CitizenName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelativeContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DrivingLicenceNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DLicenceCopy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zilla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Village)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CitizenName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FatherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Division)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelativeContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DrivingLicenceNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DLicenceCopy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zilla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Village)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonImg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "LocalCitizenView", new { id=item.CitizenId }) |
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.PoliceClearanceModel>
+
+@{
+    ViewBag.Title = "PoliceClearanceList";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>Police Clearance List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ThanaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TokenNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThanaDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PoliceClearImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TokenNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanaDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PoliceClearImg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Details", "PoliceClearanceDetils", new { id=item.ThanaId }) 
+            
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,207 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.LocalCitizenModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <input id="autoComplete" name="autocomplete" placeholder="Start typing NID or Birth ID" type="text" autocomplete="off">
+    <span class="k-icon k-i-search" style="margin-top:-40px;margin-right:10px;float:right;">&nbsp;</span>
+</div>
+@if (Model.Count() > 0)
+{
+    <table class="table" id="localCitizen">
+        <tr>
+            <th>
+                Citizen Name
+            </th>
+            <th>
+                NID
+            </th>
+            <th>
+                Birth Id
+            </th>
+            <th>
+                Father Name
+            </th>
+            <th>
+                Mother Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Division
+            </th>
+            <th>
+                Contact
+            </th>
+            <th>
+                Present Address
+            </th>
+            <th>
+                Relative Contact
+            </th>
+            <th>
+                Passport No
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Driving Licence
+            </th>
+            <th>
+                DLicence Copy
+            </th>
+           
+            <th>
+                Gender
+            </th>
+            <th>
+                Zilla 
+            </th>
+            <th>
+                Thana
+            </th>
+            <th>
+                Village 
+            </th>
+            <th>
+                Post Office
+            </th>
+            <th>
+                PersonImg
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CitizenName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Division)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PresentAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RelativeContact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassportNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrivingLicenceNo)
+                </td>
+                <td>
+                    <img class="user-photo img-css" src="~/Image/LocalCitizen/DrivingLicence/@item.DLicenceCopy" width="50" height="50" />
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zilla)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thana)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Village)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostOffice)
+                </td>
+                <td>
+                    <img class="user-photo img-css" src="~/Image/LocalCitizen/PersonImg/@item.PersonImg" />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CitizenId }, htmlAttributes: new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { id = item.CitizenId }, htmlAttributes: new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CitizenId }, htmlAttributes: new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="row">
+        <div class="colxs-12 text-center">
+            @Html.Partial("_PagingPartial", Model)
+        </div>
+    </div>
+}
+else
+{
+    <h4>No Record to display</h4>
+}
+
+<br />
+<div>
+    @Html.ActionLink("Back", "AdminView", "DashBoard")
+</div>
+<script>
+   $("#autoComplete").autocomplete({
+        minLength: 10,
+        source: function (request, response) {
+            content = $.trim(request.term);
+            $.ajax({
+                url: '@Url.Action("SearchData", "LocalCitizen")',
+                type: "POST",
+                dataType: "json",
+                data: { searchId: content },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return { label: item.NID, value: item.NID, id: item.CitizenId };
+                    }))
+                }
+            });
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            isloadFirstTime = true;
+            var selectTextId = ui.item.id;
+            location.href = "/LocalCitizen/Index?citizenId="+ selectTextId;
+        },
+    })
+ .keyup(function () {
+     if ($.trim($("#autoComplete").val()) == ""){
+         location.href = "/LocalCitizen/Index";
+     }
+ })
+ .autocomplete("instance")._renderItem = function (ul, item) {
+     var term = $.trim(this.term);
+     var re = new RegExp("(" + term + ")", "gi"),
+                cls = "bold-text",
+                template = "<span class='" + cls + "'>$1</span>",
+                label = item.label.toString().replace(re, template),
+                $li = $("<li/>").appendTo(ul);
+     $("<span>").html(label).appendTo($li);
+     return $li;
+ };
+</script>
+
