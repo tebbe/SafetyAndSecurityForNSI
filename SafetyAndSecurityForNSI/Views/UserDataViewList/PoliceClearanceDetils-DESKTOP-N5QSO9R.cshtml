@@ -1,0 +1,104 @@
+﻿@model SafetyAndSecurityForNSI.Models.PoliceClearanceModel
+
+@{
+    ViewBag.Title = "PoliceClearanceDetils";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>Police Clearance Detils</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TokenNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TokenNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanaDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanaDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PoliceClearImg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PoliceClearImg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-default" href="/UserDataViewList/PoliceClearanceList?NID=@Model.NID">Back To List</a>
+</p>

@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -National Social Identity</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/kendo/2015.3.1111/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/2015.3.1111/kendo.timezones.min.js"></script>
+    <script src="~/Scripts/kendo/2015.3.1111/kendo.aspnetmvc.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/jquery.shorten.js"></script>
+
+    @*template js File*@
+
+    @*<script type="text/javascript" src="~/ScriptsD/jquery.min.d311399a202bbfe8f6b94a4546a2a025.js"></script>*@
+    <script type="text/javascript" src="~/ScriptsD/utils.min.960d4a24cc6fa3b473b4ae2018d5c364.js"></script>
+    <script type="text/javascript" src="~/ScriptsD/granite.min.e26b5f40a34d432bee3ded1ccbdc7041.js"></script>
+    @*<script type="text/javascript" src="~/ScriptsD/jquery.min.d7c42e4a257b8b9fe38d1c53dd20d01a.js"></script>*@
+    <link rel="manifest" href="~/ScriptsD/manifest.json">
+    <link rel="mask-icon" href="~/ScriptsD/safari-pinned-tab.svg" color="#5bbad5">
+
+    @****************End***************@
+
+    @*<link href="~/Content/kendo/2015.3.1111/kendo.common-bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2015.3.1111/kendo.bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/Content/kendo/2015.3.1111/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2015.3.1111/kendo.dataviz.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2015.3.1111/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2015.3.1111/kendo.default.min.css" rel="stylesheet" />
+
+    <link href="~/Content/loading_partail.css" rel="stylesheet" />
+    @*template style File*@
+
+    <link rel="stylesheet" href="~/ContentD/uber.min.442e6d21a7661536d276441870dc9153.css" type="text/css">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    @****************End***************@
+    <link href="~/Content/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Content/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+
+    <style>
+        #footer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: .5rem;
+            color: white;
+            background-color: black;
+            text-align: center;
+            z-index: 2;
+        }
+    </style>
+
+</head>
+<body>
+
+    @{
+        long loginUserNId = 0;
+        string passport = "";
+        if (Request.Cookies["CookieAdminInfo"] != null)
+        {
+             loginUserNId = Convert.ToInt64(Request.Cookies["CookieAdminInfo"].Values["nid"].ToString());
+             passport = Request.Cookies["CookieAdminInfo"].Values["passport"];
+
+        }
+        //long loginUserNId = Convert.ToInt32(Request.Cookies["CookieAdminInfo"].Values["nid"].ToString());
+    }
+    <div class="navbar navbar-brand navbar-fixed-top">
+        <div class="mode-disabled home-template">
+            <script>$=jQuery;</script>
+            <div class="site-wrap">
+                <div class="nav-context">
+                    <noindex>
+                        <div class="header-container">
+                            <header class="header">
+                                <div class="header_browse">
+                                    <div class="header_nav">
+                                        <ul>
+                                            <li class="header_nav_submenus">
+                                                <a href="#" class="header_nav_primary">
+                                                    Ministry
+                                                    <div class="icons" icon="down-arrow"></div>
+                                                </a>
+                                                <div class="header_dropdown">
+                                                    <div class="container-lg">
+                                                        <div class="col-lg-12">
+                                                            <div class="header_dropdown_software">Most Important Govenrment Website</div>
+                                                            <div class="spc_in-sm"></div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="row">
+                                                                <div class="col-lg-4">
+                                                                    <a href="http://bangladesh.gov.bd" class="header_dropdown_card">
+                                                                        <div class="header_dropdown_overlay">
+                                                                            <div class="header_dropdown_image">
+                                                                                <img src="~/Image/Blank/MinisteryOfBangladesh.gif" alt="" />
+                                                                            </div>
+                                                                            <div class="header_dropdown_software">Bangladesh Government</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <a href="http://www.moedu.gov.bd/" class="header_dropdown_card">
+                                                                        <div class="header_dropdown_overlay">
+                                                                            <div class="header_dropdown_image"><img src="~/Image/Blank/MinisteryOfBangladesh.gif" alt="" /></div>
+                                                                            <div class="header_dropdown_software">Ministry Of Education</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <a href="http://www.mohfw.gov.bd/" class="header_dropdown_card">
+                                                                        <div class="header_dropdown_overlay">
+                                                                            <div class="header_dropdown_image"><img src="~/Image/Blank/MinisteryOfBangladesh.gif" alt="" /></div>
+                                                                            <div class="header_dropdown_software">Ministry Of Health</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="row">
+                                                                <div class="col-lg-4">
+                                                                    <a href="http://www.moa.gov.bd/" class="header_dropdown_card">
+                                                                        <div class="header_dropdown_overlay">
+                                                                            <div class="header_dropdown_image">
+                                                                                <img src="~/Image/Blank/MinisteryOfBangladesh.gif" alt="" />
+                                                                            </div>
+                                                                            <div class="header_dropdown_software">Ministry Of Agriculture</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <a href="http://www.mofood.gov.bd/" class="header_dropdown_card">
+                                                                        <div class="header_dropdown_overlay">
+                                                                            <div class="header_dropdown_image">
+                                                                                <img src="~/Image/Blank/MinisteryOfBangladesh.gif" alt="" />
+                                                                            </div>
+                                                                            <div class="header_dropdown_software">Ministry Of Food</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <a href="https://mof.gov.bd/en/" class="header_dropdown_card">
+                                                                        <div class="header_dropdown_overlay">
+                                                                            <div class="header_dropdown_image">
+                                                                                <img src="~/Image/Blank/MinisteryOfBangladesh.gif" alt="" />
+                                                                            </div>
+                                                                            <div class="header_dropdown_software">Ministry Of Finance</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 type_align--center">
+                                                            <div class="spc_in-md"></div>
+                                                            <a href="/DashBoard/MinistryDivisionList" class="btn-xs stroke">View all</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li><a href="/Applications/Index?NID=@loginUserNId&Passport=@passport" class="header_nav_primary">Applications</a></li>
+                                            <li><a href="/Applications/Create" class="header_nav_primary">Apply Now</a></li>
+                                            <li><a href="/UserDataViewList/LocalCitizenList?NID=@loginUserNId&Passport=@passport" class="header_nav_primary">User Info</a></li>
+
+                                            @**********************************Mobile View ********************************************************@
+                                            <li class="mobile-only">
+                                                <ul>
+                                                    <li><a href="/UserDataViewList/LocalCitizenList?NID=@loginUserNId&Passport=@passport">BD Citizen</a></li>
+                                                    <li><a href="/UserDataViewList/ForeignCitizenList?passportNo=">Foreign Citizen</a></li>
+                                                    <li><a href="/UserDataViewList/HomeLoanList?NID=@loginUserNId&Passport=@passport">Home Loan</a></li>
+                                                    <li><a href="/UserDataViewList/CarLoanList?NID=@loginUserNId&Passport=@passport">Car Loan</a></li>
+                                                    <li><a href="/UserDataViewList/PoliceClearanceList?NID=@loginUserNId&Passport=@passport">Police Clearance</a></li>
+                                                    <li><a href="/UserDataViewList/TaxList?NID=@loginUserNId&Passport=@passport">Tax Entry</a></li>
+                                                    <li><a href="/UserDataViewList/SSIList?NID=@loginUserNId&Passport=@passport">SSI</a></li>
+                                                    <li><a href="/UserDataViewList/DoctorList?NID=@loginUserNId&Passport=@passport">Doctors Entry</a></li>
+                                                    <li><a href="/UserDataViewList/TaxYearList?NID=@loginUserNId">Tax Year Clearance</a></li>
+                                                    <li><a href="#">Mobile apps</a></li>
+                                                    <li><a href="#">Support</a></li>
+                                                    <li><a href="#">Contact</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <a href="#" class="header_menu">
+                                    <div class="header_menu_line"></div>
+                                    <div class="header_menu_line"></div>
+                                    <div class="header_menu_line"></div>
+                                </a>
+                                <div class="header_utilities" style="margin-right:30px!important">
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+
+                            </header>
+                        </div>
+                    </noindex>
+                    @*<script defer src="~/ScriptsD/forms2.min.js"></script>*@
+                    @*<script type="text/javascript" src="~/ScriptsD/uber.min.1cdd6f6cba19c1de7351f68ca4fb0545.js" defer></script>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content" role="main" style="margin-top:10%;">
+        <div class="contain section home-page">
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+
+            </div>
+            <div class="page-footer" id="footer">
+                <div class="page-footer-inner">
+                    &copy; Safety And Security System for NSI @DateTime.Now.ToString("MMM dd,yyyy hh:mm tt")
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

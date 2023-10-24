@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44b849f8b7344a10870c637d46bd7a6d" Name="Diagram1">
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.ApplicationCategory" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.Application" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.625" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.CarLoanModel" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.CitizenShipModel" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.CrimeProgressStatu" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.CriminalRecordEntry" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.DMemberShipCategoryModel" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.DoctorsEntryModel" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.EthnicityModel" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.ForeignCitizenModel" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.GovernmentJob" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.HomeLoanModel" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.LocalCitizenModel" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.PoliceClearanceModel" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.RaceModel" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.SexModel" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.SSIModel" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.TaxEntryModel" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SSFORNSIDBFinalModel.TaxYearModel" Width="1.5" PointX="4.75" PointY="14.75" />
+        <AssociationConnector Association="SSFORNSIDBFinalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SSFORNSIDBFinalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SSFORNSIDBFinalModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

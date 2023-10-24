@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.TaxEntryModel>
+
+@{
+    ViewBag.Title = "TaxList";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>Tax List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SocialSecurityNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SocialSecurityNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxImageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Details", "TaxDetails", new { id=item.TaxId })
+           
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,324 @@
+﻿@model SafetyAndSecurityForNSI.Models.DoctorsEntryModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.HiddenFor(m=>m.DoctorsId)
+<h4 class="text-center">Doctors Info Update</h4>
+<div class="row">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="col-md-12">
+        <div class="col-md-6 form-horizontal form-widget">
+            <div class="form-group">
+                @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DegreeOne, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.DegreeOne, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DegreeOne, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DegreeTwo, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.DegreeTwo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DegreeTwo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DegreeThree, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.DegreeThree, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DegreeThree, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 form-horizontal form-widget">
+            <div class="col-md-6 col-sm-5 col-xs-8 divForPic" id="divForPic-0" style="margin-left:37%">
+                <span id="UserImgClose-0" style="display:none;">
+                    <img src="~/Image/Blank/close_pic.png" class="previewImgClose" id="UserImgClose-0" data-count="0" />
+                </span>
+                <div id="imgPreview-0" class="imgPreview">
+                    @if (Model.DoctorImage != null && Model.DoctorImage != "")
+                    {
+                      <img src="~/Image/Doctors/@Model.DoctorImage" width="200" height="200" />
+                    }
+                </div>
+                <div id="imgUpload-0" class="image-uploader">
+                    <input type="file" name="files" id="file-0" class="inputfile inputfile-4" data-count="0" style="display:none;" />
+                    <label for="file-0" id="lbl-0" class="lblForPics">
+                        <span style="font-size: 26px;padding-top:1em;display:block;" class="lbl_Span_plus">+</span>
+                        <span style="font-size: 15px;font-weight:bold;">Add Photos</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="margin-top:50px;">
+        <div class="col-md-6  form-horizontal form-widget">
+            <div class="form-group">
+                @Html.LabelFor(model => model.TrainingInstitute, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.TrainingInstitute, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TrainingInstitute, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TrainingPeriod, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.TrainingPeriod, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TrainingPeriod, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SpecialTraining, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.SpecialTraining, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SpecialTraining, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BMAMembershipNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.BMAMembershipNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BMAMembershipNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BranceCode, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.BranceCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BranceCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 form-horizontal form-widget">
+            <div class="form-group">
+                @Html.LabelFor(model => model.MembershipCategory, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.MembershipCategory, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MembershipCategory, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BcsRegNo, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.BcsRegNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BcsRegNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NID, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.NID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(mode => mode.Gender, new SelectList(ViewBag.GenderCategory, "Sex", "Sex"), ".....Select Gender.....", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaritalStatus, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.MaritalStatus, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-group" style="margin-top:50px;">
+    <div class="col-md-offset-3 col-md-9">
+        <button class="btn-primary" id="DoctorEntryUpdate"><i class="fa fa-edit"></i>Update</button>
+        <button class="btn-warning" id="DoctorEntryRefresh"><i class="fa fa-refresh"></i>Refresh</button>
+        <button class="btn-danger" id="DoctorEntryCancel"><i class="fa fa-close"></i>Cancel</button>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+    var allMainFile = [];
+    var allFileCount = [];
+    var id;
+    var PictureName;
+      $(document).ready(function () {
+        if ('@Model.DoctorImage' != null || '@Model.DoctorImage' != '') {
+        $("#imgPreview-0").show();
+        $("#UserImgClose-0").show();
+        $("#imgUpload-0").hide();
+        }
+    });
+    $('#DoctorEntryRefresh').click(function () {
+        location.reload();
+    });
+    $('#DoctorEntryCancel').click(function () {
+        location.href = '@Url.Action("Index", "DoctorsEntry")';
+    });
+
+    $(".divForPic").on('change', '.inputfile-4', function (e) {
+        id = $(this).data("count");
+        var countFiles = $("#file-" + id)[0].files.length;
+        var imgPath = $("#file-" + id)[0].value;
+        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        var image_holder = $("#imgPreview-" + id);
+        var files = e.target.files;
+        image_holder.empty();
+        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+            if (typeof (FileReader) != "undefined") {
+                allFileCount.push(id);
+                allMainFile[id] = files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("<img />", { "src": e.target.result }).appendTo(image_holder);
+                }
+                $("#imgUpload-" + id).hide();
+                $("#UserImgClose-" + id).show();
+                image_holder.show();
+                $("#file-" + id).hide();
+                $("#lblfile-" + id).hide();
+                $("#PictureName").val($("#file-" + id)[0].files[0]);
+                reader.readAsDataURL($("#file-" + id)[0].files[0]);
+                $(".lbl_Span_plus").text("+");
+                id++;
+            } else {
+                alert("This browser does not support FileReader.");
+            }
+        } else {
+            alert("Pls select only images");
+        }
+    });
+
+
+    $(".divForPic").on('click', '.previewImgClose', function (e) {
+        var id = $(this).data("count");
+        allMainFile[id] = "";
+        $("#imgPreview-" + id).empty();
+        $("#imgPreview-" + id).hide();
+        $("#UserImgClose-" + id).hide();
+        $("#imgUpload-" + id).show();
+    });
+
+    $("#DoctorEntryUpdate").click(function () {
+        var sendData = new FormData();
+            sendData.append("DoctorsId", $("#DoctorsId").val());
+            sendData.append("DoctorName", $("#DoctorName").val());
+            sendData.append("DegreeOne", $("#DegreeOne").val());
+            sendData.append("DegreeTwo", $("#DegreeTwo").val());
+            sendData.append("DegreeThree", $("#DegreeThree").val());
+            sendData.append("TrainingInstitute", $("#TrainingInstitute").val());
+            sendData.append("TrainingPeriod", $("#TrainingPeriod").val());
+            sendData.append("SpecialTraining", $("#SpecialTraining").val());
+            sendData.append("BMAMembershipNo", $("#BMAMembershipNo").val());
+            sendData.append("BranceCode", $("#BranceCode").val());
+            sendData.append("MembershipCategory", $("#MembershipCategory").val());
+            sendData.append("BcsRegNo", $("#BcsRegNo").val());
+            sendData.append("NID", $("#NID").val());
+            sendData.append("Gender", $("#Gender").val());
+            sendData.append("MaritalStatus", $("#MaritalStatus").val());
+            for (var i = 0; i < allMainFile.length; i++) {
+                sendData.append("files[" + i + "]", allMainFile[i]);
+            }
+            $.ajax({
+                url:'@Url.Action("DoctorInfoUpdate", "DoctorsEntry")',
+                type:'Post',
+                data:sendData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                    if (data === "Error") {
+                        alert("Failed");
+                       //notification.show("Adding new citizen was unsuccessful.", "upload-error");
+
+                    } else {
+                        //notification.show( "Local Citizen info has been successfully added.", "upload-success");
+                        alert("Success");
+                    }
+                },
+                error: function (error) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                   // notification.show("Upload unsuccessful", "upload-warning");
+                    alert("Upload Failed");
+                }
+            });
+    });
+</script>
+
+<style>
+    .image-uploader {
+        width: 200px;
+        height: 200px;
+        display: block;
+        text-align: center;
+    }
+
+    .imgPreview {
+        background-color: #e8e4d0;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #808080;
+        display: none;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+        .imgPreview img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            height: auto;
+        }
+
+    .lblForPics {
+        text-align: center;
+        max-width: 90%;
+        width: 200px;
+        height: 200px;
+        vertical-align: middle;
+        border: 1px dashed blue;
+    }
+
+        .lblForPics span {
+            color: #083bb5 !important;
+        }
+
+    .previewImgClose {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        float: right;
+        left: -1.5em;
+        bottom: 1.5em;
+        z-index: 9999;
+        margin-top: .3em;
+    }
+</style>

@@ -1,0 +1,551 @@
+﻿@model SafetyAndSecurityForNSI.ViewModel.LocalCitizenViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div id="divForLocalCitizenEntry">
+    <div class="row">
+        <h4 class="text-center">Local Citizen Entry</h4>
+        <div class="col-md-12">
+            <div class="col-md-6 form-horizontal form-widget">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("Citizen Name", htmlAttributes: new { @class = "control-label col-md-5"  })
+                    <div class="col-md-7">
+                        <input type="text" id="CitizenName" name="CitizenName"  class = "form-control"  />
+                        @*@Html.EditorFor(model => model.CitizenName, new { htmlAttributes = new { @class = "form-control",  } })*@
+                        @Html.ValidationMessageFor(model => model.CitizenName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("National ID", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        @*@Html.EditorFor(model => model.NID, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <input type="number" id="NID" name="NID" class="form-control" pattern="^[0-9]{17}$"  />
+                        @Html.ValidationMessageFor(model => model.NID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Birth ID", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="number" id="BirthId" name="BirthId" pattern="^[0-9]{17}$" class="form-control"  />
+                        @*@Html.EditorFor(model => model.BirthId, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.BirthId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Father Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="FatherName" name="FatherName" class="form-control"  />
+                        @*@Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Mother Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="MotherName" name="MotherName" class="form-control"  />
+                        @*@Html.EditorFor(model => model.MotherName, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Äge", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="number" id="Age" name="Age" pattern="^[1-9]$" class="form-control"  />
+                        @*@Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Division Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="Division" name="Division" class="form-control"  />
+                        @*@Html.EditorFor(model => model.Division, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Personal Contact", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="tel" id="Contact" name="DivisContaction" pattern="^+880|[1-9]{10}$" class="form-control"   />
+                        @*@Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Present Address", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <textarea type="text" id="PresentAddress" name="PresentAddress" class="form-control" ></textarea>
+                        @Html.ValidationMessageFor(model => model.PresentAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 form-horizontal form-widget">
+                <div class="form-group">
+                    @Html.Label("Relative Contact", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="tel" id="RelativeContact" name="RelativeContact" pattern="^+880|[1-9]{10}$" class="form-control"  />
+                        @*@Html.EditorFor(model => model.RelativeContact, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.RelativeContact, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Passport No", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="PassportNo" name="PassportNo"  pattern="^[A-Z,0-9]{9}$" class="form-control" />
+                        @*@Html.EditorFor(model => model.PassportNo, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="email" id="Email" name="Email"  class="form-control" />
+                        @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Driving Licence No", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="DrivingLicenceNo" name="DrivingLicenceNo" class="form-control" />
+                        @*@Html.EditorFor(model => model.DrivingLicenceNo, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.DrivingLicenceNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Gender", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        @Html.DropDownList("Gender", new SelectList(ViewBag.GenderList, "Sex", "Sex"), ".....Select Gender.....", new { @class = "form-control" })
+                        @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Zilla", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="Zilla" name="Zilla" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.Zilla, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Thana", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="Thana" name="Thana" class="form-control"  />
+                        @*@Html.EditorFor(model => model.Thana, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Thana, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.Label("Village", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="Village" name="Village" class="form-control"  />
+                        @*@Html.EditorFor(model => model.Village, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Village, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Post Office", htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-7">
+                        <input type="text" id="PostOffice" name="PostOffice" class="form-control"  />
+                        @*@Html.EditorFor(model => model.PostOffice, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.PostOffice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label id="notification"></label>
+        <div class="col-md-12">           
+            <div class="col-md-6">
+                <div class="form-group">
+                   <label class="col-md-5"></label>
+                    <div class="col-md-7">
+                        <div class="col-md-5 col-sm-5 col-xs-7 divForPic" id="divForPic-0">
+                            <span id="UserImgClose-0" style="display:none;">
+                                <img src="~/Image/Blank/close_pic.png" class="previewImgClose" id="UserImgClose-0" data-count="0" />
+                            </span>
+                            <div id="imgPreview-0" class="imgPreview"></div>
+                            <div id="imgUpload-0" class="image-uploader">
+                                <input type="file" name="files" id="file-0" class="inputfile inputfile-5" data-count="0" style="display:none;"  />
+                                <label for="file-0" id="lbl-0" class="lblForPics">
+                                    <span style="font-size: 26px;padding-top:1em;display:block;" class="lbl_Span_plus">+</span>
+                                    <span style="font-size: 15px;font-weight:bold;">Person Image</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-md-5"></label>
+                    <div class="col-md-7">
+                        <div class="col-md-5 col-sm-5 col-xs-7 divForPic" id="divForPic-1">
+                            <span id="UserImgClose-1" style="display:none;">
+                                <img src="~/Image/Blank/close_pic.png" class="previewImgClose" id="UserImgClose-1" data-count="1" />
+                            </span>
+                            <div id="imgPreview-1" class="imgPreview"></div>
+                            <div id="imgUpload-1" class="image-uploader">
+                                <input type="file" name="files" id="file-1" class="inputfile inputfile-5" data-count="1" style="display:none;" />
+                                <label for="file-1" id="lbl-1" class="lblForPics">
+                                    <span style="font-size: 26px;padding-top:1em;display:block;" class="lbl_Span_plus">+</span>
+                                    <span style="font-size: 15px;font-weight:bold;">Driving Licence</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-top:50px;">
+        <div class="col-md-offset-2 col-md-9">
+            <span class="btn btn-primary" id="localCitizenSave"><i class="fa fa-save"></i> Save</span>
+            <span class="btn btn-warning" id="localCitizenRefresh"><i class="fa fa-refresh"></i> Refresh</span>
+            <span class="btn btn-danger" id="localCitizenCancel"><i class="fa fa-close"></i> Cancel</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="row col-xs-12">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+
+    var allMainFile = [];
+    var allFileCount = [];
+    var id;
+    var PictureName;
+    $('#localCitizenRefresh').click(function () {
+        location.reload();
+    });
+    $('#localCitizenCancel').click(function () {
+        location.href = '@Url.Action("Index", "LocalCitizen")';
+    });
+    @************************Image Code*****************@
+    $(".divForPic").on('change', '.inputfile-5', function (e) {
+        id = $(this).data("count");
+        var countFiles = $("#file-" + id)[0].files.length;
+        var imgPath = $("#file-" + id)[0].value;
+        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        var image_holder = $("#imgPreview-" + id);
+        var files = e.target.files;
+        image_holder.empty();
+        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+            if (typeof (FileReader) != "undefined") {
+                allFileCount.push(id);
+                allMainFile[id] = files[0];
+                //for (var i = 0; i < countFiles; i++) {
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("<img />", { "src": e.target.result }).appendTo(image_holder);
+                }
+                $("#imgUpload-" + id).hide();
+                $("#UserImgClose-" + id).show();
+                image_holder.show();
+                $("#file-" + id).hide();
+                $("#lblfile-" + id).hide();
+                $("#PictureName").val($("#file-" + id)[0].files[0]);
+                reader.readAsDataURL($("#file-" + id)[0].files[0]);
+                $(".lbl_Span_plus").text("+");
+                //}
+                id++;
+            } else {
+                alert("This browser does not support FileReader.");
+            }
+        } else {
+            alert("Pls select only images");
+        }
+    });
+
+    $(".divForPic").on('click', '.previewImgClose', function (e) {
+        var id = $(this).data("count");
+        allMainFile[id] = "";
+        $("#imgPreview-" + id).empty();
+        $("#imgPreview-" + id).hide();
+        $("#UserImgClose-" + id).hide();
+        $("#imgUpload-" + id).show();
+    });
+
+    @*****************************Save Local citizenData*********************@
+
+    var LocalCitizenValidation = $("#divForLocalCitizenEntry").kendoValidator({
+        rules: {
+            Image: function (select) {
+                if (select.is("[name=files]") && $("#file-0").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            CitizenName: function (input) {
+                if (input.is("[name=CitizenName]") && $("#CitizenName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            NID: function (input) {
+                if (input.is("[name=NID]") && $("#NID").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            BirthId: function (input) {
+                if (input.is("[name=BirthId]") && $("#BirthId").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            FatherName: function (input) {
+                if (input.is("[name=FatherName]") && $("#FatherName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            MotherName: function (input) {
+                if (input.is("[name=MotherName]") && $("#MotherName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Age: function (input) {
+                if (input.is("[name=Age]") && $("#Age").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Division: function (input) {
+                if (input.is("[name=Division]") && $("#Division").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Contact: function (input) {
+                if (input.is("[name=Contact]") && $("#Contact").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PresentAddress: function (input) {
+                if (input.is("[name=PresentAddress]") && $("#PresentAddress").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            RelativeContact: function (input) {
+                if (input.is("[name=RelativeContact]") && $("#RelativeContact").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Email: function (input) {
+                if (input.is("[name=Email]") && $("#Email").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Gender: function (select) {
+                if (select.is("[name=Gender]") && $("#Gender").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Zilla: function (input) {
+                if (input.is("[name=Zilla]") && $("#Zilla").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Thana: function (input) {
+                if (input.is("[name=Thana]") && $("#Thana").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Village: function (input) {
+                if (input.is("[name=Village]") && $("#Village").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PostOffice: function (input) {
+                if (input.is("[name=PostOffice]") && $("#PostOffice").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+        },
+        messages: {
+            Image:"Select Image",
+            CitizenName: "*",
+            NID: "*",
+            BirthId: "*",
+            FatherName: "*",
+            MotherName: "*",
+            Age: "*",
+            Division: "*",
+            Contact: "*",
+            PresentAddress: "*",
+            RelativeContact: "*",
+            Email: "*",
+            Gender: "*",
+            Zilla: "*",
+            Thana: "*",
+            Village: "*",
+            PostOffice: "*"
+        }
+    }).data("kendoValidator");
+
+    $("#localCitizenSave").click(function () {
+        if (LocalCitizenValidation.validate()) {
+            var sendData = new FormData();
+            sendData.append("CitizenName", $("#CitizenName").val());
+            sendData.append("NID", $("#NID").val());
+            sendData.append("BirthId", $("#BirthId").val());
+            sendData.append("FatherName", $("#FatherName").val());
+            sendData.append("MotherName", $("#MotherName").val());
+            sendData.append("Age", $("#Age").val());
+            sendData.append("Division", $("#Division").val());
+            sendData.append("Contact", $("#Contact").val());
+            sendData.append("PresentAddress", $("#PresentAddress").val());
+            sendData.append("RelativeContact", $("#RelativeContact").val());
+            sendData.append("PassportNo", $("#PassportNo").val());
+            sendData.append("Email", $("#Email").val());
+            sendData.append("DrivingLicenceNo", $("#DrivingLicenceNo").val());
+            sendData.append("Gender", $("#Gender").val());
+            sendData.append("Zilla", $("#Zilla").val());
+            sendData.append("Thana", $("#Thana").val());
+            sendData.append("Village", $("#Village").val());
+            sendData.append("PostOffice", $("#PostOffice").val());
+
+             for (var i = 0; i < allMainFile.length; i++) {
+                sendData.append("files[" + i + "]", allMainFile[i]);
+            }
+            $.ajax({
+                url: '@Url.Action("LocalCitizenSave", "LocalCitizen")',
+                type: 'Post',
+                data: sendData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                    if (data === "Error") {
+                        alert("Failed");
+                       //notification.show("Adding new citizen was unsuccessful.", "upload-error");
+                    } else {
+                        //notification.show( "Local Citizen info has been successfully added.", "upload-success");
+                        alert("Success");
+                    }
+                },
+                error: function (error) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                   // notification.show("Upload unsuccessful", "upload-warning");
+                    alert("Upload Failed");
+                }
+            });
+        }
+    });
+</script>
+<style>
+    input:invalid {
+        box-shadow: 0 0 5px 1px red;
+    }
+
+    input:focus:invalid {
+        outline: none;
+    }
+ 
+    .image-uploader {
+        width: 200px;
+        height: 200px;
+        display: block;
+        text-align: center;
+    }
+
+    .imgPreview {
+        background-color: #e8e4d0;
+       
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #808080;
+        display: none;
+        overflow: hidden;
+    }
+
+        .imgPreview img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            height: auto;
+        }
+
+    .lblForPics {
+        text-align: center;
+        max-width: 90%;
+        width:200px;
+        height: 200px;
+        vertical-align: middle;
+        border: 1px dashed blue;
+    }
+
+        .lblForPics span {
+            color: #083bb5 !important;
+        }
+
+    .previewImgClose {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        float: right;
+        left: 12em;
+        bottom:-1em;
+        z-index: 9999;
+        margin-top:.3em;
+    }
+</style>

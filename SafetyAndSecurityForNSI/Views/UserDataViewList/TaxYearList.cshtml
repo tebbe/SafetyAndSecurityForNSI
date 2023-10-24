@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.TaxYearModel>
+
+@{
+    ViewBag.Title = "TaxYearList";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>TaxYear List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SocialSecurityNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EIN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SocialSecurityNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EIN)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Details", "TaxYearDetails", new { id=item.TaxYearId })
+           
+        </td>
+    </tr>
+}
+
+</table>

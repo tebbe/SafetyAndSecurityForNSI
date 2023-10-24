@@ -1,0 +1,102 @@
+﻿@model SafetyAndSecurityForNSI.Models.TaxEntryModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TaxEntryModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialSecurityNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialSecurityNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ITIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ITIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonImage)
+        </dt>
+
+        <dd>
+            @if (Model.PersonImage != null)
+            {
+                <img class="user-photo img-view-css" src="~/Image/SSI/PersonImage/@Model.PersonImage" width="50" height="50" />
+            }          
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TaxId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

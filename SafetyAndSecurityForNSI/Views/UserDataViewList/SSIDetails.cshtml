@@ -1,0 +1,266 @@
+﻿@model SafetyAndSecurityForNSI.Models.SSIModel
+
+@{
+    ViewBag.Title = "SSIDetails";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>SSIDetails</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthMiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthMiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanaCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanaCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NidLastdigit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NidLastdigit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenShip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenShip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ethnicity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ethnicity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Race)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Race)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentsFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentsFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentsMiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentsMiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentsLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentsLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentsSSINo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentsSSINo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MailingAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Division)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Division)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-default" href="/UserDataViewList/SSIList?NID=@Model.NID">Back To List</a>
+
+</p>

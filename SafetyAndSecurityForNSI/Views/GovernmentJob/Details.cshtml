@@ -1,0 +1,31 @@
+﻿@model SafetyAndSecurityForNSI.Models.GovernmentJob
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <h4 class="text-center">Job Details</h4>
+</div>
+@if (Model != null)
+{
+    <div class="row">
+
+            <div class="col-xs-12 text-center">
+                @Html.DisplayFor(model => model.DepartmentName)
+            </div>
+
+            <div class="col-xs-12 text-center">
+                @Html.DisplayFor(model => model.JobTitle)
+            </div>
+
+            <div class="col-xs-12 text-center">
+                @Html.Raw(Model.Body)
+            </div>
+    </div>
+
+}
+else
+{
+<h4>No record to display</h4>
+}

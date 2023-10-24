@@ -1,0 +1,65 @@
+﻿@using SafetyAndSecurityForNSI.Models
+@model LoginViewModel
+
+<div class="row">
+    <div class="col-xs-offset-4 col-xs-4 col-xs-offset-4 text-center" >
+        <div class="row">
+            <div class="col-xs-12" style="background-color:black;opacity:1.6;">
+                <div class="text-center" style="color:red;">
+                    <h1>C<small style="color:green">Panel</small></h1>
+                </div>
+                <div id="loginForm">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter Email" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox" style="color:white;">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="submit" value="LogIn" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    }
+                    <div>
+                        <p>@Html.ActionLink("Forgot your password?", "ForgotPassword")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    body {
+        background: url('../Image/Blank/dearPic.jpg'),no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+   
+
+</style>

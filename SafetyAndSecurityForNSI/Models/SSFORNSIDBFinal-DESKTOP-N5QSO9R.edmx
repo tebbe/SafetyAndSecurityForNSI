@@ -1,0 +1,1349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SSFORNSIDBFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApplicationCategories">
+          <Key>
+            <PropertyRef Name="ApplicationCategoryId" />
+          </Key>
+          <Property Name="ApplicationCategoryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplicationName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BirthId" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="nvarchar(max)" />
+          <Property Name="ApplicationType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="NID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarLoanModels">
+          <Key>
+            <PropertyRef Name="CarLoanId" />
+          </Key>
+          <Property Name="CarLoanId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CitizenName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NID" Type="bigint" Nullable="false" />
+          <Property Name="BirthId" Type="bigint" Nullable="false" />
+          <Property Name="FatherName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MotherName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Division" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Contact" Type="int" Nullable="false" />
+          <Property Name="PresenrAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RelativeContact" Type="int" Nullable="false" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SSINumber" Type="bigint" Nullable="false" />
+          <Property Name="LoanAmmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="JobStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MonthlyIncome" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="YearlyIncome" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="WorkingAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonDetails" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FamilyMembers" Type="int" Nullable="false" />
+          <Property Name="BankStatement" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonImage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CitizenShipModels">
+          <Key>
+            <PropertyRef Name="CitizenshipId" />
+          </Key>
+          <Property Name="CitizenshipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CitizenShipCategories" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CrimeProgressStatus">
+          <Key>
+            <PropertyRef Name="CrimeStatusId" />
+          </Key>
+          <Property Name="CrimeStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CriminalRecordEntry">
+          <Key>
+            <PropertyRef Name="CrimeId" />
+          </Key>
+          <Property Name="CrimeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Nid" Type="bigint" />
+          <Property Name="BirthId" Type="bigint" />
+          <Property Name="SSN" Type="bigint" />
+          <Property Name="ParentsNid" Type="bigint" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="CrimeType" Type="nvarchar(max)" />
+          <Property Name="CrimeDetails" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="bigint" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="DMemberShipCategoryModels">
+          <Key>
+            <PropertyRef Name="DMembershipId" />
+          </Key>
+          <Property Name="DMembershipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberCategory" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DoctorsEntryModels">
+          <Key>
+            <PropertyRef Name="DoctorsId" />
+          </Key>
+          <Property Name="DoctorsId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DoctorName" Type="nvarchar(max)" />
+          <Property Name="DegreeOne" Type="nvarchar(max)" />
+          <Property Name="DegreeTwo" Type="nvarchar(max)" />
+          <Property Name="DegreeThree" Type="nvarchar(max)" />
+          <Property Name="TrainingInstitute" Type="nvarchar(max)" />
+          <Property Name="TrainingPeriod" Type="nvarchar(max)" />
+          <Property Name="SpecialTraining" Type="nvarchar(max)" />
+          <Property Name="BMAMembershipNo" Type="bigint" />
+          <Property Name="BranceCode" Type="nvarchar(max)" />
+          <Property Name="MembershipCategory" Type="nvarchar(max)" />
+          <Property Name="BcsRegNo" Type="nvarchar(max)" />
+          <Property Name="NID" Type="bigint" Nullable="false" />
+          <Property Name="DoctorImage" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="MaritalStatus" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EthnicityModels">
+          <Key>
+            <PropertyRef Name="EthnicityId" />
+          </Key>
+          <Property Name="EthnicityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EthnicityCategory" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ForeignCitizenModels">
+          <Key>
+            <PropertyRef Name="ForignCitizenId" />
+          </Key>
+          <Property Name="ForignCitizenId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CitizenName" Type="nvarchar(max)" />
+          <Property Name="FatherName" Type="nvarchar(max)" />
+          <Property Name="MotherName" Type="nvarchar(max)" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="PassportImagCopy" Type="nvarchar(max)" />
+          <Property Name="CountryName" Type="nvarchar(max)" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="int" />
+          <Property Name="PresenrAddress" Type="nvarchar(max)" />
+          <Property Name="RelativeContact" Type="int" />
+          <Property Name="PoliceClearImg" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="DrivingLicenceNo" Type="nvarchar(max)" />
+          <Property Name="DLicenceCopy" Type="nvarchar(max)" />
+          <Property Name="PoliceEntryNo" Type="nvarchar(max)" />
+          <Property Name="PersonImage" Type="nvarchar(max)" />
+          <Property Name="PostCode" Type="int" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="LivingTown" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="MaritalStatus" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GovernmentJob">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HomeLoanModels">
+          <Key>
+            <PropertyRef Name="HomeLoanId" />
+          </Key>
+          <Property Name="HomeLoanId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CitizenName" Type="nvarchar(max)" />
+          <Property Name="NID" Type="bigint" Nullable="false" />
+          <Property Name="BirthId" Type="bigint" Nullable="false" />
+          <Property Name="FatherName" Type="nvarchar(max)" />
+          <Property Name="MotherName" Type="nvarchar(max)" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="ParmanentAddress" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="int" />
+          <Property Name="PresenrAddress" Type="nvarchar(max)" />
+          <Property Name="RelativeContact" Type="int" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="SSINumber" Type="bigint" Nullable="false" />
+          <Property Name="LoanAmmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="JobStatus" Type="nvarchar(max)" />
+          <Property Name="MonthlyIncome" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="YearlyIncome" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="WorkingAddress" Type="nvarchar(max)" />
+          <Property Name="PersonDetails" Type="nvarchar(max)" />
+          <Property Name="FamilyMembers" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="PersonImage" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LocalCitizenModels">
+          <Key>
+            <PropertyRef Name="CitizenId" />
+          </Key>
+          <Property Name="CitizenId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CitizenName" Type="nvarchar(max)" />
+          <Property Name="NID" Type="bigint" Nullable="false" />
+          <Property Name="BirthId" Type="bigint" Nullable="false" />
+          <Property Name="FatherName" Type="nvarchar(max)" />
+          <Property Name="MotherName" Type="nvarchar(max)" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Division" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="int" />
+          <Property Name="PresentAddress" Type="nvarchar(max)" />
+          <Property Name="RelativeContact" Type="int" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="DrivingLicenceNo" Type="nvarchar(max)" />
+          <Property Name="DLicenceCopy" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="Zilla" Type="nvarchar(max)" />
+          <Property Name="Thana" Type="nvarchar(max)" />
+          <Property Name="Village" Type="nvarchar(max)" />
+          <Property Name="PostOffice" Type="nvarchar(max)" />
+          <Property Name="PersonImg" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PoliceClearanceModels">
+          <Key>
+            <PropertyRef Name="ThanaId" />
+          </Key>
+          <Property Name="ThanaId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ThanaName" Type="nvarchar(max)" />
+          <Property Name="TokenNumber" Type="nvarchar(max)" />
+          <Property Name="ThanaDetails" Type="nvarchar(max)" />
+          <Property Name="OfficerName" Type="nvarchar(max)" />
+          <Property Name="NID" Type="bigint" Nullable="false" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="PoliceClearImg" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RaceModels">
+          <Key>
+            <PropertyRef Name="RaceId" />
+          </Key>
+          <Property Name="RaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RaceCategories" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SexModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sex" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SSIModels">
+          <Key>
+            <PropertyRef Name="SSIId" />
+          </Key>
+          <Property Name="SSIId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="BirthFirstName" Type="nvarchar(max)" />
+          <Property Name="BirthMiddleName" Type="nvarchar(max)" />
+          <Property Name="BirthLastName" Type="nvarchar(max)" />
+          <Property Name="ThanaCode" Type="int" Nullable="false" />
+          <Property Name="PostalCode" Type="int" Nullable="false" />
+          <Property Name="NidLastdigit" Type="int" Nullable="false" />
+          <Property Name="PlaceOfBirth" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Thana" Type="nvarchar(max)" />
+          <Property Name="DateOfBirth" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CitizenShip" Type="nvarchar(max)" />
+          <Property Name="Ethnicity" Type="nvarchar(max)" />
+          <Property Name="Race" Type="nvarchar(max)" />
+          <Property Name="ParentsFirstName" Type="nvarchar(max)" />
+          <Property Name="ParentsMiddleName" Type="nvarchar(max)" />
+          <Property Name="ParentsLastName" Type="nvarchar(max)" />
+          <Property Name="ParentsSSINo" Type="bigint" />
+          <Property Name="PhoneNumber" Type="int" />
+          <Property Name="MailingAddress" Type="nvarchar(max)" />
+          <Property Name="NID" Type="bigint" Nullable="false" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="Division" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="PersonImage" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaxEntryModels">
+          <Key>
+            <PropertyRef Name="TaxId" />
+          </Key>
+          <Property Name="TaxId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SocialSecurityNumber" Type="bigint" />
+          <Property Name="NID" Type="bigint" />
+          <Property Name="ITIN" Type="bigint" />
+          <Property Name="EIN" Type="nvarchar(max)" />
+          <Property Name="PassportNo" Type="nvarchar(max)" />
+          <Property Name="TaxImageUrl" Type="nvarchar(max)" />
+          <Property Name="TaxYear" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="PersonImage" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaxYearModels">
+          <Key>
+            <PropertyRef Name="TaxYearId" />
+          </Key>
+          <Property Name="TaxYearId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SocialSecurityNumber" Type="bigint" Nullable="false" />
+          <Property Name="NID" Type="bigint" />
+          <Property Name="ITIN" Type="bigint" />
+          <Property Name="EIN" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SSFORNSIDBFinalModelStoreContainer">
+          <EntitySet Name="ApplicationCategories" EntityType="Self.ApplicationCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarLoanModels" EntityType="Self.CarLoanModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CitizenShipModels" EntityType="Self.CitizenShipModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CrimeProgressStatus" EntityType="Self.CrimeProgressStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CriminalRecordEntry" EntityType="Self.CriminalRecordEntry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DMemberShipCategoryModels" EntityType="Self.DMemberShipCategoryModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoctorsEntryModels" EntityType="Self.DoctorsEntryModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EthnicityModels" EntityType="Self.EthnicityModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForeignCitizenModels" EntityType="Self.ForeignCitizenModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GovernmentJob" EntityType="Self.GovernmentJob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeLoanModels" EntityType="Self.HomeLoanModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocalCitizenModels" EntityType="Self.LocalCitizenModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PoliceClearanceModels" EntityType="Self.PoliceClearanceModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RaceModels" EntityType="Self.RaceModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SexModel" EntityType="Self.SexModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SSIModels" EntityType="Self.SSIModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxEntryModels" EntityType="Self.TaxEntryModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxYearModels" EntityType="Self.TaxYearModels" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SSFORNSIDBFinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SSFORNSIDBFinalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApplicationCategories" EntityType="SSFORNSIDBFinalModel.ApplicationCategory" />
+          <EntitySet Name="Applications" EntityType="SSFORNSIDBFinalModel.Application" />
+          <EntitySet Name="AspNetRoles" EntityType="SSFORNSIDBFinalModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="SSFORNSIDBFinalModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="SSFORNSIDBFinalModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="SSFORNSIDBFinalModel.AspNetUser" />
+          <EntitySet Name="CarLoanModels" EntityType="SSFORNSIDBFinalModel.CarLoanModel" />
+          <EntitySet Name="CitizenShipModels" EntityType="SSFORNSIDBFinalModel.CitizenShipModel" />
+          <EntitySet Name="CrimeProgressStatus" EntityType="SSFORNSIDBFinalModel.CrimeProgressStatu" />
+          <EntitySet Name="CriminalRecordEntries" EntityType="SSFORNSIDBFinalModel.CriminalRecordEntry" />
+          <EntitySet Name="DMemberShipCategoryModels" EntityType="SSFORNSIDBFinalModel.DMemberShipCategoryModel" />
+          <EntitySet Name="DoctorsEntryModels" EntityType="SSFORNSIDBFinalModel.DoctorsEntryModel" />
+          <EntitySet Name="EthnicityModels" EntityType="SSFORNSIDBFinalModel.EthnicityModel" />
+          <EntitySet Name="ForeignCitizenModels" EntityType="SSFORNSIDBFinalModel.ForeignCitizenModel" />
+          <EntitySet Name="GovernmentJobs" EntityType="SSFORNSIDBFinalModel.GovernmentJob" />
+          <EntitySet Name="HomeLoanModels" EntityType="SSFORNSIDBFinalModel.HomeLoanModel" />
+          <EntitySet Name="LocalCitizenModels" EntityType="SSFORNSIDBFinalModel.LocalCitizenModel" />
+          <EntitySet Name="PoliceClearanceModels" EntityType="SSFORNSIDBFinalModel.PoliceClearanceModel" />
+          <EntitySet Name="RaceModels" EntityType="SSFORNSIDBFinalModel.RaceModel" />
+          <EntitySet Name="SexModels" EntityType="SSFORNSIDBFinalModel.SexModel" />
+          <EntitySet Name="SSIModels" EntityType="SSFORNSIDBFinalModel.SSIModel" />
+          <EntitySet Name="TaxEntryModels" EntityType="SSFORNSIDBFinalModel.TaxEntryModel" />
+          <EntitySet Name="TaxYearModels" EntityType="SSFORNSIDBFinalModel.TaxYearModel" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="SSFORNSIDBFinalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="SSFORNSIDBFinalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="SSFORNSIDBFinalModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ApplicationCategory">
+          <Key>
+            <PropertyRef Name="ApplicationCategoryId" />
+          </Key>
+          <Property Name="ApplicationCategoryId" Type="Guid" Nullable="false" />
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="BirthId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="SSFORNSIDBFinalModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="SSFORNSIDBFinalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="SSFORNSIDBFinalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="SSFORNSIDBFinalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="SSFORNSIDBFinalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="SSFORNSIDBFinalModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="CarLoanModel">
+          <Key>
+            <PropertyRef Name="CarLoanId" />
+          </Key>
+          <Property Name="CarLoanId" Type="Guid" Nullable="false" />
+          <Property Name="CitizenName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int64" Nullable="false" />
+          <Property Name="BirthId" Type="Int64" Nullable="false" />
+          <Property Name="FatherName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Division" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="Int32" Nullable="false" />
+          <Property Name="PresenrAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeContact" Type="Int32" Nullable="false" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SSINumber" Type="Int64" Nullable="false" />
+          <Property Name="LoanAmmount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="JobStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MonthlyIncome" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="YearlyIncome" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="WorkingAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonDetails" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyMembers" Type="Int32" Nullable="false" />
+          <Property Name="BankStatement" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonImage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CitizenShipModel">
+          <Key>
+            <PropertyRef Name="CitizenshipId" />
+          </Key>
+          <Property Name="CitizenshipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CitizenShipCategories" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CrimeProgressStatu">
+          <Key>
+            <PropertyRef Name="CrimeStatusId" />
+          </Key>
+          <Property Name="CrimeStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CriminalRecordEntry">
+          <Key>
+            <PropertyRef Name="CrimeId" />
+          </Key>
+          <Property Name="CrimeId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nid" Type="Int64" />
+          <Property Name="BirthId" Type="Int64" />
+          <Property Name="SSN" Type="Int64" />
+          <Property Name="ParentsNid" Type="Int64" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CrimeType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CrimeDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int64" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DMemberShipCategoryModel">
+          <Key>
+            <PropertyRef Name="DMembershipId" />
+          </Key>
+          <Property Name="DMembershipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DoctorsEntryModel">
+          <Key>
+            <PropertyRef Name="DoctorsId" />
+          </Key>
+          <Property Name="DoctorsId" Type="Guid" Nullable="false" />
+          <Property Name="DoctorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DegreeOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DegreeTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DegreeThree" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TrainingInstitute" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TrainingPeriod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialTraining" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BMAMembershipNo" Type="Int64" />
+          <Property Name="BranceCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MembershipCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BcsRegNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int64" Nullable="false" />
+          <Property Name="DoctorImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="EthnicityModel">
+          <Key>
+            <PropertyRef Name="EthnicityId" />
+          </Key>
+          <Property Name="EthnicityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EthnicityCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ForeignCitizenModel">
+          <Key>
+            <PropertyRef Name="ForignCitizenId" />
+          </Key>
+          <Property Name="ForignCitizenId" Type="Guid" Nullable="false" />
+          <Property Name="CitizenName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassportImagCopy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="Int32" />
+          <Property Name="PresenrAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeContact" Type="Int32" />
+          <Property Name="PoliceClearImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DrivingLicenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DLicenceCopy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PoliceEntryNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostCode" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LivingTown" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GovernmentJob">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Guid" Nullable="false" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HomeLoanModel">
+          <Key>
+            <PropertyRef Name="HomeLoanId" />
+          </Key>
+          <Property Name="HomeLoanId" Type="Guid" Nullable="false" />
+          <Property Name="CitizenName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int64" Nullable="false" />
+          <Property Name="BirthId" Type="Int64" Nullable="false" />
+          <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="ParmanentAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="Int32" />
+          <Property Name="PresenrAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeContact" Type="Int32" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SSINumber" Type="Int64" Nullable="false" />
+          <Property Name="LoanAmmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="JobStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MonthlyIncome" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="YearlyIncome" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="WorkingAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyMembers" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="LocalCitizenModel">
+          <Key>
+            <PropertyRef Name="CitizenId" />
+          </Key>
+          <Property Name="CitizenId" Type="Guid" Nullable="false" />
+          <Property Name="CitizenName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int64" Nullable="false" />
+          <Property Name="BirthId" Type="Int64" Nullable="false" />
+          <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Division" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="Int32" />
+          <Property Name="PresentAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RelativeContact" Type="Int32" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DrivingLicenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DLicenceCopy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zilla" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Thana" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Village" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostOffice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PoliceClearanceModel">
+          <Key>
+            <PropertyRef Name="ThanaId" />
+          </Key>
+          <Property Name="ThanaId" Type="Guid" Nullable="false" />
+          <Property Name="ThanaName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TokenNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThanaDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OfficerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int64" Nullable="false" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PoliceClearImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RaceModel">
+          <Key>
+            <PropertyRef Name="RaceId" />
+          </Key>
+          <Property Name="RaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RaceCategories" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SexModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SSIModel">
+          <Key>
+            <PropertyRef Name="SSIId" />
+          </Key>
+          <Property Name="SSIId" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthFirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthMiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthLastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThanaCode" Type="Int32" Nullable="false" />
+          <Property Name="PostalCode" Type="Int32" Nullable="false" />
+          <Property Name="NidLastdigit" Type="Int32" Nullable="false" />
+          <Property Name="PlaceOfBirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Thana" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CitizenShip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ethnicity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Race" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentsFirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentsMiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentsLastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentsSSINo" Type="Int64" />
+          <Property Name="PhoneNumber" Type="Int32" />
+          <Property Name="MailingAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NID" Type="Int64" Nullable="false" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Division" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TaxEntryModel">
+          <Key>
+            <PropertyRef Name="TaxId" />
+          </Key>
+          <Property Name="TaxId" Type="Guid" Nullable="false" />
+          <Property Name="SocialSecurityNumber" Type="Int64" />
+          <Property Name="NID" Type="Int64" />
+          <Property Name="ITIN" Type="Int64" />
+          <Property Name="EIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxYear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TaxYearModel">
+          <Key>
+            <PropertyRef Name="TaxYearId" />
+          </Key>
+          <Property Name="TaxYearId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SocialSecurityNumber" Type="Int64" Nullable="false" />
+          <Property Name="NID" Type="Int64" />
+          <Property Name="ITIN" Type="Int64" />
+          <Property Name="EIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="SSFORNSIDBFinalModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SSFORNSIDBFinalModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="SSFORNSIDBFinalModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SSFORNSIDBFinalModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="SSFORNSIDBFinalModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="SSFORNSIDBFinalModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SSFORNSIDBFinalModelStoreContainer" CdmEntityContainer="SSFORNSIDBFinalEntities">
+          <EntitySetMapping Name="ApplicationCategories">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.ApplicationCategory">
+              <MappingFragment StoreEntitySet="ApplicationCategories">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="ApplicationCategoryId" ColumnName="ApplicationCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.Application">
+              <MappingFragment StoreEntitySet="Applications">
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BirthId" ColumnName="BirthId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarLoanModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.CarLoanModel">
+              <MappingFragment StoreEntitySet="CarLoanModels">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PersonImage" ColumnName="PersonImage" />
+                <ScalarProperty Name="BankStatement" ColumnName="BankStatement" />
+                <ScalarProperty Name="FamilyMembers" ColumnName="FamilyMembers" />
+                <ScalarProperty Name="PersonDetails" ColumnName="PersonDetails" />
+                <ScalarProperty Name="WorkingAddress" ColumnName="WorkingAddress" />
+                <ScalarProperty Name="YearlyIncome" ColumnName="YearlyIncome" />
+                <ScalarProperty Name="MonthlyIncome" ColumnName="MonthlyIncome" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="LoanAmmount" ColumnName="LoanAmmount" />
+                <ScalarProperty Name="SSINumber" ColumnName="SSINumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="RelativeContact" ColumnName="RelativeContact" />
+                <ScalarProperty Name="PresenrAddress" ColumnName="PresenrAddress" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="BirthId" ColumnName="BirthId" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="CitizenName" ColumnName="CitizenName" />
+                <ScalarProperty Name="CarLoanId" ColumnName="CarLoanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CitizenShipModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.CitizenShipModel">
+              <MappingFragment StoreEntitySet="CitizenShipModels">
+                <ScalarProperty Name="CitizenShipCategories" ColumnName="CitizenShipCategories" />
+                <ScalarProperty Name="CitizenshipId" ColumnName="CitizenshipId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CrimeProgressStatus">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.CrimeProgressStatu">
+              <MappingFragment StoreEntitySet="CrimeProgressStatus">
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="CrimeStatusId" ColumnName="CrimeStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CriminalRecordEntries">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.CriminalRecordEntry">
+              <MappingFragment StoreEntitySet="CriminalRecordEntry">
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CrimeDetails" ColumnName="CrimeDetails" />
+                <ScalarProperty Name="CrimeType" ColumnName="CrimeType" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="ParentsNid" ColumnName="ParentsNid" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="BirthId" ColumnName="BirthId" />
+                <ScalarProperty Name="Nid" ColumnName="Nid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CrimeId" ColumnName="CrimeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DMemberShipCategoryModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.DMemberShipCategoryModel">
+              <MappingFragment StoreEntitySet="DMemberShipCategoryModels">
+                <ScalarProperty Name="MemberCategory" ColumnName="MemberCategory" />
+                <ScalarProperty Name="DMembershipId" ColumnName="DMembershipId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorsEntryModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.DoctorsEntryModel">
+              <MappingFragment StoreEntitySet="DoctorsEntryModels">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DoctorImage" ColumnName="DoctorImage" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="BcsRegNo" ColumnName="BcsRegNo" />
+                <ScalarProperty Name="MembershipCategory" ColumnName="MembershipCategory" />
+                <ScalarProperty Name="BranceCode" ColumnName="BranceCode" />
+                <ScalarProperty Name="BMAMembershipNo" ColumnName="BMAMembershipNo" />
+                <ScalarProperty Name="SpecialTraining" ColumnName="SpecialTraining" />
+                <ScalarProperty Name="TrainingPeriod" ColumnName="TrainingPeriod" />
+                <ScalarProperty Name="TrainingInstitute" ColumnName="TrainingInstitute" />
+                <ScalarProperty Name="DegreeThree" ColumnName="DegreeThree" />
+                <ScalarProperty Name="DegreeTwo" ColumnName="DegreeTwo" />
+                <ScalarProperty Name="DegreeOne" ColumnName="DegreeOne" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="DoctorsId" ColumnName="DoctorsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EthnicityModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.EthnicityModel">
+              <MappingFragment StoreEntitySet="EthnicityModels">
+                <ScalarProperty Name="EthnicityCategory" ColumnName="EthnicityCategory" />
+                <ScalarProperty Name="EthnicityId" ColumnName="EthnicityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForeignCitizenModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.ForeignCitizenModel">
+              <MappingFragment StoreEntitySet="ForeignCitizenModels">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LivingTown" ColumnName="LivingTown" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="PersonImage" ColumnName="PersonImage" />
+                <ScalarProperty Name="PoliceEntryNo" ColumnName="PoliceEntryNo" />
+                <ScalarProperty Name="DLicenceCopy" ColumnName="DLicenceCopy" />
+                <ScalarProperty Name="DrivingLicenceNo" ColumnName="DrivingLicenceNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PoliceClearImg" ColumnName="PoliceClearImg" />
+                <ScalarProperty Name="RelativeContact" ColumnName="RelativeContact" />
+                <ScalarProperty Name="PresenrAddress" ColumnName="PresenrAddress" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="PassportImagCopy" ColumnName="PassportImagCopy" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="CitizenName" ColumnName="CitizenName" />
+                <ScalarProperty Name="ForignCitizenId" ColumnName="ForignCitizenId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GovernmentJobs">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.GovernmentJob">
+              <MappingFragment StoreEntitySet="GovernmentJob">
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeLoanModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.HomeLoanModel">
+              <MappingFragment StoreEntitySet="HomeLoanModels">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PersonImage" ColumnName="PersonImage" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FamilyMembers" ColumnName="FamilyMembers" />
+                <ScalarProperty Name="PersonDetails" ColumnName="PersonDetails" />
+                <ScalarProperty Name="WorkingAddress" ColumnName="WorkingAddress" />
+                <ScalarProperty Name="YearlyIncome" ColumnName="YearlyIncome" />
+                <ScalarProperty Name="MonthlyIncome" ColumnName="MonthlyIncome" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="LoanAmmount" ColumnName="LoanAmmount" />
+                <ScalarProperty Name="SSINumber" ColumnName="SSINumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="RelativeContact" ColumnName="RelativeContact" />
+                <ScalarProperty Name="PresenrAddress" ColumnName="PresenrAddress" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="ParmanentAddress" ColumnName="ParmanentAddress" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="BirthId" ColumnName="BirthId" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="CitizenName" ColumnName="CitizenName" />
+                <ScalarProperty Name="HomeLoanId" ColumnName="HomeLoanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalCitizenModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.LocalCitizenModel">
+              <MappingFragment StoreEntitySet="LocalCitizenModels">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="PersonImg" ColumnName="PersonImg" />
+                <ScalarProperty Name="PostOffice" ColumnName="PostOffice" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="Thana" ColumnName="Thana" />
+                <ScalarProperty Name="Zilla" ColumnName="Zilla" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DLicenceCopy" ColumnName="DLicenceCopy" />
+                <ScalarProperty Name="DrivingLicenceNo" ColumnName="DrivingLicenceNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="RelativeContact" ColumnName="RelativeContact" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="BirthId" ColumnName="BirthId" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="CitizenName" ColumnName="CitizenName" />
+                <ScalarProperty Name="CitizenId" ColumnName="CitizenId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PoliceClearanceModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.PoliceClearanceModel">
+              <MappingFragment StoreEntitySet="PoliceClearanceModels">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PoliceClearImg" ColumnName="PoliceClearImg" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="OfficerName" ColumnName="OfficerName" />
+                <ScalarProperty Name="ThanaDetails" ColumnName="ThanaDetails" />
+                <ScalarProperty Name="TokenNumber" ColumnName="TokenNumber" />
+                <ScalarProperty Name="ThanaName" ColumnName="ThanaName" />
+                <ScalarProperty Name="ThanaId" ColumnName="ThanaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RaceModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.RaceModel">
+              <MappingFragment StoreEntitySet="RaceModels">
+                <ScalarProperty Name="RaceCategories" ColumnName="RaceCategories" />
+                <ScalarProperty Name="RaceId" ColumnName="RaceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SexModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.SexModel">
+              <MappingFragment StoreEntitySet="SexModel">
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SSIModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.SSIModel">
+              <MappingFragment StoreEntitySet="SSIModels">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PersonImage" ColumnName="PersonImage" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="MailingAddress" ColumnName="MailingAddress" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ParentsSSINo" ColumnName="ParentsSSINo" />
+                <ScalarProperty Name="ParentsLastName" ColumnName="ParentsLastName" />
+                <ScalarProperty Name="ParentsMiddleName" ColumnName="ParentsMiddleName" />
+                <ScalarProperty Name="ParentsFirstName" ColumnName="ParentsFirstName" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+                <ScalarProperty Name="CitizenShip" ColumnName="CitizenShip" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Thana" ColumnName="Thana" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="NidLastdigit" ColumnName="NidLastdigit" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="ThanaCode" ColumnName="ThanaCode" />
+                <ScalarProperty Name="BirthLastName" ColumnName="BirthLastName" />
+                <ScalarProperty Name="BirthMiddleName" ColumnName="BirthMiddleName" />
+                <ScalarProperty Name="BirthFirstName" ColumnName="BirthFirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SSIId" ColumnName="SSIId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxEntryModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.TaxEntryModel">
+              <MappingFragment StoreEntitySet="TaxEntryModels">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PersonImage" ColumnName="PersonImage" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="TaxYear" ColumnName="TaxYear" />
+                <ScalarProperty Name="TaxImageUrl" ColumnName="TaxImageUrl" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="EIN" ColumnName="EIN" />
+                <ScalarProperty Name="ITIN" ColumnName="ITIN" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="SocialSecurityNumber" ColumnName="SocialSecurityNumber" />
+                <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxYearModels">
+            <EntityTypeMapping TypeName="SSFORNSIDBFinalModel.TaxYearModel">
+              <MappingFragment StoreEntitySet="TaxYearModels">
+                <ScalarProperty Name="EIN" ColumnName="EIN" />
+                <ScalarProperty Name="ITIN" ColumnName="ITIN" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="SocialSecurityNumber" ColumnName="SocialSecurityNumber" />
+                <ScalarProperty Name="TaxYearId" ColumnName="TaxYearId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="SSFORNSIDBFinalModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,658 @@
+﻿@model SafetyAndSecurityForNSI.ViewModel.SSIViewModel
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.HiddenFor(m => m.SSIId);
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-4" style="margin-left:40%;margin-right:30%;">
+            <div class="form-group">
+                <div class="col-xs-4  divForPic" id="divForPic-0">
+                    <span id="UserImgClose-0" style="display:none;">
+                        <img src="~/Image/Blank/close_pic.png" class="previewImgClose" id="UserImgClose-0" data-count="0" />
+                    </span>
+                    <div id="imgPreview-0" class="imgPreview"></div>
+                    <div id="imgUpload-0" class="image-uploader">
+                        <input type="file" name="files" id="file-0" class="inputfile inputfile-4" data-count="0" style="display:none;" />
+                        <label for="file-0" id="lbl-0" class="lblForPics">
+                            <span style="font-size: 26px;padding-top:1em;display:block;" class="lbl_Span_plus">+</span>
+                            <span style="font-size: 15px;font-weight:bold;">Add Person Image</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <h4 class="cssH4">Name to be Shown on  Card</h4>
+    <div class="col-md-12 cssDiv">
+
+        <div class="form-group col-md-4">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Citizen First Name" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-4">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Citizen Middle Name" } })
+                @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-4">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Citizen Last Name" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h4 class="cssH4">Full Name at Birth</h4>
+    <div class="col-md-12 cssDiv">
+        <div class="form-group col-md-4">
+
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.BirthFirstName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Birth First Name" } })
+                @Html.ValidationMessageFor(model => model.BirthFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-4">
+
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.BirthMiddleName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Birth First Name" } })
+                @Html.ValidationMessageFor(model => model.BirthMiddleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.BirthLastName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Birth First Name" } })
+                @Html.ValidationMessageFor(model => model.BirthLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h4 class="cssH4">Sample SSI No.</h4>
+    <div class="col-md-12 cssDiv">
+
+        <div class="form-group col-md-4">
+
+            <div class="col-md-12">
+                <input type="number" id="ThanaCode" name="ThanaCode" maxlength="3" size="3" class="form-control" placeholder="3 digit thana code " />
+                @Html.ValidationMessageFor(model => model.ThanaCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-4">
+
+            <div class="col-md-12">
+                <input type="number" id="PostalCode" name="PostalCode" maxlength="4" class="form-control" placeholder="4 digit postal code" />
+                @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-4">
+
+            <div class="col-md-12">
+                <input type="number" id="NidLastdigit" name="NidLastdigit" maxlength="4" class="form-control" placeholder="NID Last 4 digit" />
+                @Html.ValidationMessageFor(model => model.NidLastdigit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h4 class="cssH4">Father/Mother Full Name</h4>
+    <div class="col-md-12 cssDiv">
+        <div class="form-group col-md-4">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.ParentsFirstName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Parents First Name" } })
+                @Html.ValidationMessageFor(model => model.ParentsFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-4">
+
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.ParentsMiddleName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Parents Middle Name" } })
+                @Html.ValidationMessageFor(model => model.ParentsMiddleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-4">
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.ParentsLastName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Parents last Name" } })
+                @Html.ValidationMessageFor(model => model.ParentsLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h4 class="cssH4">Parents Social Security Number</h4>
+    <div class="col-md-12 cssDiv">
+        <div class="form-group">
+            @Html.Label("Parents SSI No.", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.ParentsSSINo, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Father/Mother SSI No.", @maxlength = "17" } })
+                @Html.ValidationMessageFor(model => model.ParentsSSINo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr />
+<h4>Others Details</h4>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6 form-horizontal form-widget">
+            <div class="form-group">
+                @Html.Label("Birth Place", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.PlaceOfBirth, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Name of Birth Place" } })
+                    @Html.ValidationMessageFor(model => model.PlaceOfBirth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Present Living City" } })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Thana", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Thana, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Present Living Thana" } })
+                    @Html.ValidationMessageFor(model => model.Thana, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Date Of Birth", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    <input type="date" id="DateOfBirth" name="DateOfBirth" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Ethnicity", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownList("Ethnicity", new SelectList(ViewBag.EthnicityCategory, "EthnicityCategory", "EthnicityCategory"), ".....Select Ethnicity.....", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Ethnicity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Race", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownList("Race", new SelectList(ViewBag.RaceCategory, "RaceCategories", "RaceCategories"), ".....Select Race.....", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Race, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Citizship Category", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownList("CitizenShip", new SelectList(ViewBag.CitizenCategory, "CitizenShipCategories", "CitizenShipCategories"), ".....Select Category.....", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CitizenShip, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6 form-horizontal form-widget">
+
+            <div class="form-group">
+                @Html.Label("Phone Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Mailing Address", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextAreaFor(model => model.MailingAddress, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Present Living Thana" } })
+                    @Html.ValidationMessageFor(model => model.MailingAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("National ID", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    <input type="number" id="NID" name="NID" maxlength="17" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.NID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("PassportNo", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    <input type="text" id="PassportNo" name="PassportNo" pattern="^[A-PR-WYa-pr-wy][1-8]\d\s?\d{4}[1-8]$" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Gender", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor((model => model.Gender), new SelectList(ViewBag.GenderCategory, "Sex", "Sex"), ".....Select Gender.....", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Division", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Division, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Present Division" } })
+                    @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Address", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextAreaFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="form-group" style="margin-top:50px;">
+    <div class="col-md-offset-3 col-md-9">
+        <button class="blue" id="SsiUpdate"><i class="fa fa-save"></i>Update</button>
+        <button class="green" id="SsiUpdateRefresh"><i class="fa fa-refresh"></i>Refresh</button>
+        <button class="red" id="SsiUpdateCancel"><i class="fa fa-close"></i>Cancel</button>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    console.log("SSI Edit");
+    var allMainFile = [];
+    var allFileCount = [];
+    var id;
+    var PictureName;
+    $(document).ready(function () {
+        if ('@Model.PersonImage' != null || '@Model.PersonImage' != '')
+        {
+            $("#imgPreview-0").show();
+            $("#UserImgClose-0").show();
+            $("#imgUpload-0").hide();
+        }
+    });
+    $('#SsiUpdateRefresh').click(function () {
+        location.reload();
+    });
+    $('#SsiUpdateCancel').click(function () {
+         location.href = '@Url.Action("Index", "SSI")';
+    });
+
+
+
+    @************************Image Code*****************@
+    $(".divForPic").on('change', '.inputfile-4', function (e) {
+        id = $(this).data("count");
+        var countFiles = $("#file-" + id)[0].files.length;
+        var imgPath = $("#file-" + id)[0].value;
+        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        var image_holder = $("#imgPreview-" + id);
+        var files = e.target.files;
+        image_holder.empty();
+        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+            if (typeof (FileReader) != "undefined") {
+                allFileCount.push(id);
+                allMainFile[id] = files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("<img />", { "src": e.target.result }).appendTo(image_holder);
+                }
+                $("#imgUpload-" + id).hide();
+                $("#UserImgClose-" + id).show();
+                image_holder.show();
+                $("#file-" + id).hide();
+                $("#lblfile-" + id).hide();
+                $("#PictureName").val($("#file-" + id)[0].files[0]);
+                reader.readAsDataURL($("#file-" + id)[0].files[0]);
+                $(".lbl_Span_plus").text("+");
+                id++;
+            } else {
+                alert("This browser does not support FileReader.");
+            }
+        } else {
+            alert("Pls select only images");
+        }
+    });
+
+
+    $(".divForPic").on('click', '.previewImgClose', function (e) {
+        var id = $(this).data("count");
+        allMainFile[id] = "";
+        $("#imgPreview-" + id).empty();
+        $("#imgPreview-" + id).hide();
+        $("#UserImgClose-" + id).hide();
+        $("#imgUpload-" + id).show();
+    });
+
+    @*****************************Save Local citizenData*********************@
+    var ssiValidation = $("#divForSSI").kendoValidator({
+        rules: {
+
+            FirstName: function (input) {
+                if (input.is("[name=FirstName]") && $("#FirstName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+
+            },
+            BirthFirstName: function (input) {
+                if (input.is("[name=BirthFirstName]") && $("#BirthFirstName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            ThanaCode: function (input) {
+                if (input.is("[name=ThanaCode]") && $("#ThanaCode").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PostalCode: function (input) {
+                if (input.is("[name=PostalCode]") && $("#PostalCode").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            NidLastdigit: function (input) {
+                if (input.is("[name=NidLastdigit]") && $("#NidLastdigit").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PlaceOfBirth: function (input) {
+                if (input.is("[name=PlaceOfBirth]") && $("#PlaceOfBirth").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            City: function (input) {
+                if (input.is("[name=City]") && $("#City").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Thana: function (input) {
+                if (input.is("[name=Thana]") && $("#Thana").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            DateOfBirth: function (input) {
+                if (input.is("[name=DateOfBirth]") && $("#DateOfBirth").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            CitizenShip: function (input) {
+                if (input.is("[name=CitizenShip]") && $("#CitizenShip").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Ethnicity: function (input) {
+                if (input.is("[name=Ethnicity]") && $("#Ethnicity").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Race: function (input) {
+
+                if (input.is("[name=Race]") && $("#Race").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            ParentsFirstName: function (input) {
+
+                if (input.is("[name=ParentsFirstName]") && $("#ParentsFirstName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PhoneNumber: function (input) {
+                if (input.is("[name=PhoneNumber]") && $("#PhoneNumber").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            MailingAddress: function (input) {
+                if (input.is("[name=MailingAddress]") && $("#MailingAddress").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+
+            },
+            NID: function (input) {
+                if (input.is("[name=NID]") && $("#NID").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PassportNo: function (input) {
+
+                if (input.is("[name=PassportNo]") && $("#PassportNo").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Gender: function (input) {
+
+                if (input.is("[name=Gender]") && $("#Gender").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Race: function (input) {
+                if (input.is("[name=Race]") && $("#Race").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+
+            },
+            Division: function (input) {
+
+                if (input.is("[name=Division]") && $("#Division").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Address: function (input) {
+
+                if (input.is("[name=Address]") && $("#Address").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+
+            },
+
+        },
+        messages: {
+            FirstName: "*",
+            BirthFirstName: "*",
+            ThanaCode: "*",
+            PostalCode: "*",
+            NidLastdigit: "*",
+            PlaceOfBirth: "*",
+            City: "*",
+            Thana: "*",
+            DateOfBirth: "*",
+            CitizenShip: "*",
+            Ethnicity: "*",
+            ParentsFirstName: "*",
+            ParentsSSINo: "*",
+            PhoneNumber: "*",
+            MailingAddress: "*",
+            NID: "*",
+            PassportNo: "*",
+            Gender: "*",
+            Race: "*",
+            Division: "*",
+            Address: "*",
+        }
+    }).data("kendoValidator");
+
+
+    $("#SsiUpdate").click(function () {
+        if (ssiValidation.validate()) {
+ var sendData = new FormData();
+            sendData.append("SSIId", $("#SSIId").val());
+            sendData.append("FirstName", $("#FirstName").val());
+            sendData.append("MiddleName", $("#MiddleName").val());
+            sendData.append("LastName", $("#LastName").val());
+            sendData.append("BirthFirstName", $("#BirthFirstName").val());
+            sendData.append("BirthMiddleName", $("#BirthMiddleName").val());
+            sendData.append("BirthLastName", $("#BirthLastName").val());
+            sendData.append("ThanaCode", $("#ThanaCode").val());
+            sendData.append("PostalCode", $("#PostalCode").val());
+            sendData.append("NidLastdigit", $("#NidLastdigit").val());
+            sendData.append("PlaceOfBirth", $("#PlaceOfBirth").val());
+            sendData.append("City", $("#City").val());
+            sendData.append("Thana", $("#Thana").val());
+            sendData.append("DateOfBirth", $("#DateOfBirth").val());
+            sendData.append("CitizenShip", $("#CitizenShip").val());
+            sendData.append("Ethnicity", $("#Ethnicity").val());
+            sendData.append("Race", $("#Race").val());
+            sendData.append("ParentsFirstName", $("#ParentsFirstName").val());
+            sendData.append("ParentsMiddleName", $("#ParentsMiddleName").val());
+            sendData.append("ParentsLastName", $("#ParentsLastName").val());
+            sendData.append("ParentsSSINo", $("#ParentsSSINo").val());
+            sendData.append("PhoneNumber", $("#PhoneNumber").val());
+            sendData.append("MailingAddress", $("#MailingAddress").val());
+            sendData.append("NID", $("#NID").val());
+            sendData.append("PassportNo", $("#PassportNo").val());
+            sendData.append("Gender", $("#Gender").val());
+            sendData.append("Division", $("#Division").val());
+            sendData.append("Address", $("#Address").val());
+            sendData.append("CreatedBy", 1);
+
+             for (var i = 0; i < allMainFile.length; i++) {
+                sendData.append("files[" + i + "]", allMainFile[i]);
+            }
+            $.ajax({
+                url: '@Url.Action("SSIEntryUpdate", "SSI")',
+                type: 'Post',
+                data: sendData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                    if (data === "Error") {
+                        alert("Failed");
+                       //notification.show("Adding new citizen was unsuccessful.", "upload-error");
+
+                    } else {
+                        //notification.show( "Local Citizen info has been successfully added.", "upload-success");
+                        alert("Success");
+                        location.href = '@Url.Action("Index", "SSI")';
+                    }
+                },
+                error: function (error) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                   // notification.show("Upload unsuccessful", "upload-warning");
+                    alert("Upload Failed");
+                }
+            });
+        }
+    });
+</script>
+<style>
+    input:invalid {
+        box-shadow: 0 0 5px 1px red;
+    }
+
+    input:focus:invalid {
+        outline: none;
+    }
+    .image-uploader {
+        width: 200px;
+        height: 200px;
+        display: block;
+        text-align: center;
+    }
+
+    .imgPreview {
+        background-color: #e8e4d0;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #808080;
+        display: none;
+        overflow: hidden;
+    }
+
+        .imgPreview img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            height: auto;
+        }
+
+    .lblForPics {
+        text-align: center;
+        max-width: 90%;
+        width: 200px;
+        height: 200px;
+        vertical-align: middle;
+        border: 1px dashed blue;
+    }
+
+        .lblForPics span {
+            color: #083bb5 !important;
+        }
+
+    .previewImgClose {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        float: left;
+        bottom: -1em;
+        z-index: 9999;
+        margin-top: -1.7em;
+    }
+</style>
+

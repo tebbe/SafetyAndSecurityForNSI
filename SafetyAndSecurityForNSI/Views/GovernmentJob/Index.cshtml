@@ -1,0 +1,139 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.GovernmentJob>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+<div class="col-xs-12 col-md-12">
+    <span class="btn btn-primary" onclick="AddNewJob()"><i class="fa fa-plus-circle"></i> Add New Job</span>
+</div>
+</div>
+<div class="col-md-12 col-xs-12" style="margin-bottom:10px;">
+    <h4 class="text-center">Gov't Job Portal</h4>
+</div>
+
+<div class="row">
+    <input id="autoComplete" name="autocomplete" placeholder="Start typing" type="text" autocomplete="off">
+    <span class="k-icon k-i-search" style="margin-top:-40px;margin-right:10px;float:right;">&nbsp;</span>
+</div>
+<div id="DivForGovtJob">
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-condensed table-hover">
+            <tr>
+                <td width="5%">#SL</td>
+                <td width="25%">Department</td>
+                <td width="30%">Title</td>
+                <td width="20%">Create Date</td>
+                <td width="20%"></td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td width="5%">@count</td>
+                    <td width="25%">@item.DepartmentName</td>
+                    <td width="30%">@item.JobTitle</td>
+                    <td width="20%">@Convert.ToDateTime(item.CreatedDate).ToString("MMM dd,yyyy hh:mm tt")</td>
+                    <td width="20%">
+                        <span class="btn btn-success" data-toggle="tooltip" title="Edit"><a href="/GovernmentJob/Edit?JobId=@item.JobId"><i class="fa fa-pencil"></i></a></span>
+                        <span class="btn btn-danger" onclick="deleteJob(@item.JobId)" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></span>
+                        <span class="btn btn-default" data-toggle="tooltip" title="Details"><a href="/GovernmentJob/Details?JobId=@item.JobId"><i class="fa fa-info-circle"></i></a></span>
+                    </td>
+                </tr>
+                
+            }
+          
+        </table>
+        <div class="row text-center">
+            @Html.Partial("_PagingPartial", Model)
+        </div>
+    }
+    else
+    {
+        <h4>
+            No record to display
+        </h4>
+    }
+   
+</div>
+<div class="row col-sm-12">
+    @Html.ActionLink("Back", "AdminView", "DashBoard")
+</div>
+<script>
+    $('[data-toggle="tooltip"]').tooltip();
+    function AddNewJob() {
+        location.href = "/GovernmentJob/Create";
+    }
+
+    $("#autoComplete").autocomplete({
+        minLength: 1,
+        source: function (request, response) {
+            content = $.trim(request.term);
+            $.ajax({
+                url: '@Url.Action("SearchJob", "GovernmentJob")',
+                type: "POST",
+                dataType: "json",
+                data: { searText: content },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return { label: item.JobTitle, value: item.JobTitle, id: item.JobId };
+                    }))
+                }
+            });
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            isloadFirstTime = true;
+            var selectTextId = ui.item.id;
+            location.href = "/GovernmentJob/Index?JobId="+ selectTextId;
+        },
+    })
+ .keyup(function () {
+     if ($.trim($("#autoComplete").val()) == "") {
+         location.href = "/GovernmentJob/Index";
+     }
+ })
+ .autocomplete("instance")._renderItem = function (ul, item) {
+     var term = $.trim(this.term);
+     var re = new RegExp("(" + term + ")", "gi"),
+                cls = "bold-text",
+                template = "<span class='" + cls + "'>$1</span>",
+                label = item.label.toString().replace(re, template),
+                $li = $("<li/>").appendTo(ul);
+     $("<span>").html(label).appendTo($li);
+     return $li;
+        };
+
+    @*********************Delete Job************************@
+    function deleteJob(id) {
+ var sendData = new FormData();
+        
+            $.ajax({
+                url: '@Url.Action("DeleteJob", "GovernmentJob")?JobId='+id,
+                type: 'Post',
+                data: sendData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                    if (data === "Error") {
+                        alert("Failed");
+                       //notification.show("Adding new citizen was unsuccessful.", "upload-error");
+
+                    } else {
+                        //notification.show( "Local Citizen info has been successfully added.", "upload-success");
+                        location.reload();
+                    }
+                },
+                error: function (error) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                   // notification.show("Upload unsuccessful", "upload-warning");
+                    alert("Upload Failed");
+                }
+            });
+
+    }
+</script>

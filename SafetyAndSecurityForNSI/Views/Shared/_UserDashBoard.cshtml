@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -National Social Identity</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="~/Views/DashBoard/UserView.cshtml" />
+    <link rel="stylesheet" href="~/ContentD/uber.min.442e6d21a7661536d276441870dc9153.css" type="text/css">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="~/ScriptsD/jquery.min.d311399a202bbfe8f6b94a4546a2a025.js"></script>
+    <script type="text/javascript" src="~/ScriptsD/utils.min.960d4a24cc6fa3b473b4ae2018d5c364.js"></script>
+    <script type="text/javascript" src="~/ScriptsD/granite.min.e26b5f40a34d432bee3ded1ccbdc7041.js"></script>
+    <script type="text/javascript" src="~/ScriptsD/jquery.min.d7c42e4a257b8b9fe38d1c53dd20d01a.js"></script>
+
+    <link rel="manifest" href="~/ScriptsD/manifest.json">
+    <link rel="mask-icon" href="~/ScriptsD/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+    <div class="navbar navbar-brand navbar-fixed-top">
+        <div class="mode-disabled home-template">
+                <script>$=jQuery;</script>
+                <div class="site-wrap">
+                    <div class="navbar navbar-brand navbar-fixed-top">
+
+                        <noindex>
+                            <div class="header-container">
+                                <header class="header">
+                                    <a href="#"
+                                       class=" ">
+                                        <div class="pluralsight-spacing">
+                                        </div>
+                                    </a>
+                                    <div class="header_browse">
+                                        <div class="header_search">
+                                            <form action="#">
+                                                <div>
+                                                    <style>
+                                                        .header .header_search input[type="text"] {
+                                                            /*background-image: url("data:image/svg+xml;utf8,<svg viewBox='-250 -190 1500 1500' xmlns='http://www.w3.org/2000/svg'><path fill='white' transform='scale(1,-1)' d='M875 131l-279 278q37 40 57.5 90.5t21.5 99.5q-4 127 -88 29t-208 86q-131 -3 -214.5 -86t-86.5 -29q4 -127 88 -29t208 -86q56 1 94 19t88 51l278 -279zM374 357q-97 3 -178 74t-74 178q3 97 74 178.5t178 74.5q97 -3 178.5 -74.5t74.5 -178.5 q-3 -97 -74.5 -178t-178.5 -74z'/></svg>");*/
+                                                        }
+                                                    </style>
+                                                    <input type="text" id="searBox" name="q" placeholder="What do you want to search ?" autocomplete="off" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="header_nav">
+                                            <ul>
+                                                <li class="header_nav_submenus header_nav_courses">
+                                                    <a href="#" class="header_nav_primary">
+                                                        User Data
+                                                        <div class="icons" icon="down-arrow"></div>
+                                                    </a>
+                                                    <div class="header_dropdown">
+                                                        <div class="container-lg">
+                                                            <div class="col-lg-12">
+                                                                <div class="col-lg-4">
+                                                                    <div class="header_roles software-development">
+                                                                        <a href="#">Service Info List</a>
+                                                                        <a href="/UserDataViewList/LocalCitizenList?NID=">BD Citizen</a>
+                                                                        <a href="/UserDataViewList/ForeignCitizenList?passportNo=">Foreign Citizen</a>
+                                                                        <a href="/UserDataViewList/HomeLoanList?NID=">Home Loan</a>
+                                                                        <a href="/UserDataViewList/CarLoanList?NID=">Car Loan</a>
+                                                                        <a href="/UserDataViewList/PoliceClearanceList?NID=">Police Clearance</a>
+                                                                        <a href="/UserDataViewList/TaxList?NID=">Tax Entry</a>
+                                                                        <a href="/UserDataViewList/SSIList?NID=">SSI</a>
+                                                                        <a href="/UserDataViewList/DoctorList?NID=">Doctors Entry</a>
+                                                                        <a href="/UserDataViewList/TaxYearList?NID=">Tax Year Clearance</a>
+                                                                        <div class="spc_in-xs"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="header_roles manufacturing-design">
+                                                                        <a href="#">All Govt Service</a>
+                                                                        <a href="#">BD Citizen</a>
+                                                                        <a href="#">Foreign Citizen</a>
+                                                                        <a href="#">Home Loan</a>
+                                                                        <a href="#">Car Loan</a>
+                                                                        <a href="#">Police Clearance</a>
+                                                                        <a href="#">Tax Entry</a>
+                                                                        <a href="#">SSI</a>
+                                                                        <a href="#">Doctors Entry</a>
+                                                                        <a href="#">Tax Year Clearance</a>
+                                                                        <div class="spc_in-xs"></div>
+                                                                    </div>
+                                                                </div>
+                                                              
+                                                                <div class="col-lg-4">
+                                                                    <a href="" class="header_roles data-professional">Data</a>
+                                                                    <div class="spc_in-sm"></div>
+                                                                    <a href="#" class="header_roles creative-professional">Architecture</a>
+                                                                    <div class="spc_in-sm"></div>
+                                                                    <a href="#" class="header_roles business-professional">Manufacturing</a>
+                                                                    <div class="spc_in-sm"></div>
+                                                                    <a href="" class="header_roles architecture-construction">Information</a>
+                                                                    <div class="spc_in-sm"></div>
+                                                                    <a href="#" class="header_roles security-professional">Cyber Security</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="spc_in-sm"></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li><a href="/Applications/Index?NID=" class="header_nav_primary">Applications</a></li>
+                                                <li><a href="/Applications/Create" class="header_nav_primary">Apply Now</a></li>
+                                                <li><a href="/LocalCitizen/Index" class="header_nav_primary">User Info</a></li>
+
+                                                @**********************************Mobile View ********************************************************@
+                                                <li class="mobile-only">
+                                                    <ul>
+                                                        <li><a href="/UserDataViewList/LocalCitizenList?NID=">BD Citizen</a></li>
+                                                        <li><a href="/UserDataViewList/ForeignCitizenList?passportNo=">Foreign Citizen</a></li>
+                                                        <li><a href="/UserDataViewList/HomeLoanList?NID=">Home Loan</a></li>
+                                                        <li><a href="/UserDataViewList/CarLoanList?NID=">Car Loan</a></li>
+                                                        <li><a href="/UserDataViewList/PoliceClearanceList?NID=">Police Clearance</a></li>
+                                                        <li><a href="/UserDataViewList/TaxList?NID=">Tax Entry</a></li>
+                                                        <li><a href="/UserDataViewList/SSIList?NID=">SSI</a></li>
+                                                        <li><a href="/UserDataViewList/DoctorList?NID=">Doctors Entry</a></li>
+                                                        <li><a href="/UserDataViewList/TaxYearList?NID=">Tax Year Clearance</a></li>
+                                                        <li><a href="#">Mobile apps</a></li>
+                                                        <li><a href="#">Support</a></li>
+                                                        <li><a href="#">Contact</a></li>
+                   
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <a href="#" class="header_menu">
+                                        <div class="header_menu_line"></div>
+                                        <div class="header_menu_line"></div>
+                                        <div class="header_menu_line"></div>
+                                    </a>
+                                    <div class="header_utilities">
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            <a href="@Url.Action("Index", "Manage")" class="btn-xs flat white header_sign_in_link">("Hello" +User.Identity.GetUserName() + "!")</a>
+                                                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+
+                                        }
+                                    </div>
+
+                                </header>
+                            </div>
+                        </noindex>
+                        @*<script defer src="~/ScriptsD/forms2.min.js"></script>*@
+                        <script type="text/javascript" src="~/ScriptsD/uber.min.1cdd6f6cba19c1de7351f68ca4fb0545.js" defer></script>
+
+                    </div>
+                </div>
+            </div>     
+    </div>
+
+<div id="content" role="main" style="margin-top:10%;">
+    <div class="contain section home-page">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; Safety And Security for NSI @DateTime.Now.ToString("MMM dd,yyyy hh:mm tt")</p>
+            </footer>
+        </div>
+    </div>
+ </div>
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
+  @RenderSection("scripts", required: false)
+</body>
+</html>

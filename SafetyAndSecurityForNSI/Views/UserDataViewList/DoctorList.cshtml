@@ -1,0 +1,128 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.DoctorsEntryModel>
+
+@{
+    ViewBag.Title = "DoctorList";
+    Layout = "~/Views/Shared/_UserDashBoard.cshtml";
+}
+
+<h2>DoctorList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeOne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeTwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeThree)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingInstitute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingPeriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecialTraining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BMAMembershipNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BranceCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MembershipCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BcsRegNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeOne)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeTwo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeThree)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainingInstitute)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrainingPeriod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecialTraining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BMAMembershipNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranceCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MembershipCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BcsRegNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaritalStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DoctorDetails", new { id=item.DoctorsId }) |
+        </td>
+    </tr>
+}
+
+</table>

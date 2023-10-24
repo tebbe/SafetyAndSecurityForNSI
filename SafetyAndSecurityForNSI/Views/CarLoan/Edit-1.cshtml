@@ -1,0 +1,698 @@
+﻿@model SafetyAndSecurityForNSI.ViewModel.CarLoanViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.HiddenFor(model => model.CarLoanId)
+<div id="DivForCarLoanUpdate">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <label id="notification"></label>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
+                        <div class="form-horizontal form-widgets col-sm-4">
+                            <div class="form-group">
+                                <div class="col-md-4 col-sm-5 col-xs-8 divForPic" id="divForPic-0">
+                                    <span id="UserImgClose-0" style="display:none;">
+                                        <img src="~/Image/Blank/close_pic.png" class="previewImgClose" id="UserImgClose-0" data-count="0" />
+                                    </span>
+                                    <div id="imgPreview-0" class="imgPreview">
+                                        @if (Model.PersonImage != null && Model.PersonImage != "")
+                                    {
+                                    <img src="~/Image/Car/PersonImg/@Model.PersonImage" width="400" height="250" />
+                                    }
+                                    </div>
+                                    <div id="imgUpload-0" class="image-uploader">
+                                        <input type="file" name="files" id="file-0" class="inputfile inputfile-4" data-count="0" style="display:none;" />
+                                        <label for="file-0" id="lbl-0" class="lblForPics">
+                                            <span style="font-size: 26px;padding-top:1em;display:block;" class="lbl_Span_plus">+</span>
+                                            <span style="font-size: 15px;font-weight:bold;">Citizen Image</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
+                        <div class="form-horizontal form-widgets col-sm-4">
+                            <div class="form-group">
+                                <div class="col-md-4 col-sm-5 col-xs-8 divForPic" id="divForPic-1">
+                                    <span id="UserImgClose-1" style="display:none;">
+                                        <img src="~/Image/Blank/close_pic.png" class="previewImgClose" id="UserImgClose-1" data-count="1" />
+                                    </span>
+                                    <div id="imgPreview-1" class="imgPreview">
+                                        @if (Model.BankStatement != null && Model.BankStatement != "")
+                                    {
+                                    <img src="~/Image/Car/BankStateImg/@Model.BankStatement" width="400" height="250" />
+                                    }
+                                    </div>
+                                    <div id="imgUpload-1" class="image-uploader">
+                                        <input type="file" name="files" id="file-1" class="inputfile inputfile-4" data-count="1" style="display:none;" />
+                                        <label for="file-1" id="lbl-1" class="lblForPics">
+                                            <span style="font-size: 26px;padding-top:1em;display:block;" class="lbl_Span_plus">+</span>
+                                            <span style="font-size: 15px;font-weight:bold;">Add Photos</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <h4 class="text-center">Personal Info</h4>
+        <div class="col-md-12">
+            <div class="col-md-6 form-horizontal form-widget">
+                <div class="form-group">
+                    <label id="" class = "control-label col-md-4">Citizen Name</label>
+                    <div class="col-md-8">
+                        <input type="text" id="CitizenName" name="CitizenName"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.CitizenName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id=""  class = "control-label col-md-4">National ID</label>
+                    <div class="col-md-8">
+                        <input type="number" id="NID" name="NID"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.NID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id=""  class = "control-label col-md-4">Birth ID</label>
+                    <div class="col-md-8">
+                        <input type="number" id="BirthId" name="BirthId"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.BirthId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id=""  class = "control-label col-md-4">Father Name</label>
+                    <div class="col-md-8">
+                        <input type="text" id="FatherName" name="FatherName"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Mother Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="text" id="MotherName" name="MotherName"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Age", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="Age" name="Age"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Division Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Division, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class = "control-label col-md-4">Contact No.</label>
+                    <div class="col-md-8">
+                        <input type="number" id="Contact" name="Contact"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Present Address", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.PresenrAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PresenrAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Relative Contact", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.RelativeContact, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RelativeContact, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Passport No", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="PassportNo" name="PassportNo"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="email" id="Email" name="Email" class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 form-horizontal form-widget">
+                <div class="form-group">
+                    @Html.Label("SSI Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="SSINumber"  name="SSINumber" class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.SSINumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Loan Ammount", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="LoanAmmount" name="LoanAmmount"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.LoanAmmount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Job Status", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.JobStatus, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.JobStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Monthly Income", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="MonthlyIncome" name="MonthlyIncome"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.MonthlyIncome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Yearly Income", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="YearlyIncome" name="YearlyIncome"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.YearlyIncome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Working Address", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.WorkingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.WorkingAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Person Details", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.PersonDetails, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PersonDetails, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Family Members", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="number" id="FamilyMembers" name="FamilyMembers"  class="form-control"  />
+                        @Html.ValidationMessageFor(model => model.FamilyMembers, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Gender", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.Gender, new SelectList(ViewBag.GenderList, "Sex", "Sex"), ".....Select Gender.....", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-top:50px;">
+        <div class="col-md-offset-4 col-md-9">
+            <span class="btn btn-primary" id="carLoanUpdate"><i class="fa fa-save"></i> Update</span>
+            <span class="btn btn-warning" id="carLoanRefresh"><i class="fa fa-refresh"></i> Refresh</span>
+            <span class="btn btn-danger" id="carLoanCancel"><i class="fa fa-close"></i> Cancel</span>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+    console.log("carLoan view");
+     var allMainFile = [];
+    var allFileCount = [];
+    var id;
+    var PictureName;
+    $(document).ready(function () {
+        if ('@Model.PersonImage' != null || '@Model.PersonImage' != '') {
+        $("#imgPreview-0").show();
+        $("#UserImgClose-0").show();
+        $("#imgUpload-0").hide();
+        }
+    if ('@Model.BankStatement' != null || '@Model.BankStatement' != '') {
+        $("#imgPreview-1").show();
+        $("#UserImgClose-1").show();
+        $("#imgUpload-1").hide();
+    }
+    });
+    $('#carLoanRefresh').click(function () {
+        location.reload();
+    });
+    $('#carLoanCancel').click(function () {
+        location.href = '@Url.Action("Index", "CarLoan")';
+    });
+    @************************Image Code*****************@
+    $(".divForPic").on('change', '.inputfile-4', function (e) {
+        id = $(this).data("count");
+        var countFiles = $("#file-" + id)[0].files.length;
+        var imgPath = $("#file-" + id)[0].value;
+        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        var image_holder = $("#imgPreview-" + id);
+        var files = e.target.files;
+        image_holder.empty();
+        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+            if (typeof (FileReader) != "undefined") {
+                allFileCount.push(id);
+                allMainFile[id] = files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("<img />", { "src": e.target.result }).appendTo(image_holder);
+                }
+                $("#imgUpload-" + id).hide();
+                $("#UserImgClose-" + id).show();
+                image_holder.show();
+                $("#file-" + id).hide();
+                $("#lblfile-" + id).hide();
+                $("#PictureName").val($("#file-" + id)[0].files[0]);
+                reader.readAsDataURL($("#file-" + id)[0].files[0]);
+                $(".lbl_Span_plus").text("+");
+                id++;
+            } else {
+                alert("This browser does not support FileReader.");
+            }
+        } else {
+            alert("Pls select only images");
+        }
+    });
+
+    $(".divForPic").on('click', '.previewImgClose', function (e) {
+        var id = $(this).data("count");
+        allMainFile[id] = "";
+        $("#imgPreview-" + id).empty();
+        $("#imgPreview-" + id).hide();
+        $("#UserImgClose-" + id).hide();
+        $("#imgUpload-" + id).show();
+    });
+
+
+    @*****************************Save Local citizenData*********************@
+
+    var carValidation = $("#DivForCarLoanUpdate").kendoValidator({
+        rules: {
+
+            CitizenName: function (input) {
+                if (input.is("[name=CitizenName]") && $("#CitizenName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            NID: function (input) {
+                if (input.is("[name=NID]") && $("#NID").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            BirthId: function (input) {
+                if (input.is("[name=BirthId]") && $("#BirthId").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            FatherName: function (input) {
+                if (input.is("[name=FatherName]") && $("#FatherName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            MotherName: function (input) {
+                if (input.is("[name=MotherName]") && $("#MotherName").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Age: function (input) {
+                if (input.is("[name=Age]") && $("#Age").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Division: function (input) {
+                if (input.is("[name=Division]") && $("#Division").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Contact: function (input) {
+                if (input.is("[name=Contact]") && $("#Contact").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PresenrAddress: function (input) {
+                if (input.is("[name=PresenrAddress]") && $("#PresenrAddress").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            RelativeContact: function (input) {
+                if (input.is("[name=RelativeContact]") && $("#RelativeContact").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PassportNo: function (input) {
+                if (input.is("[name=PassportNo]") && $("#PassportNo").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Email: function (input) {
+                if (input.is("[name=Email]") && $("#Email").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            Gender: function (select) {
+                if (select.is("[name=Gender]") && $("#Gender").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            SSINumber: function (input) {
+                if (input.is("[name=SSINumber]") && $("#SSINumber").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            LoanAmmount: function (input) {
+                if (input.is("[name=LoanAmmount]") && $("#LoanAmmount").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            JobStatus: function (input) {
+                if (input.is("[name=JobStatus]") && $("#JobStatus").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            MonthlyIncome: function (input) {
+                if (input.is("[name=MonthlyIncome]") && $("#MonthlyIncome").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            YearlyIncome: function (input) {
+                if (input.is("[name=YearlyIncome]") && $("#YearlyIncome").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            WorkingAddress: function (input) {
+                if (input.is("[name=WorkingAddress]") && $("#WorkingAddress").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            PersonDetails: function (input) {
+                if (input.is("[name=PersonDetails]") && $("#PersonDetails").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            FamilyMembers: function (input) {
+                if (input.is("[name=FamilyMembers]") && $("#FamilyMembers").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+
+            City: function (input) {
+                if (input.is("[name=City]") && $("#City").val() === "") {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+        },
+        messages: {
+            CitizenName: "*",
+            NID: "*",
+            BirthId: "*",
+            FatherName: "*",
+            MotherName: "*",
+            Age: "*",
+            Division: "*",
+            Contact: "*",
+            PresenrAddress: "*",
+            RelativeContact: "*",
+            PassportNo: "*",
+            Email: "*",
+            Gender: "*",
+            SSINumber: "*",
+            LoanAmmount: "*",
+            JobStatus: "*",
+            MonthlyIncome: "*",
+            YearlyIncome: "*",
+            WorkingAddress: "*",
+            PersonDetails: "*",
+            FamilyMembers: "*",
+            City: "*",
+        }
+    }).data("kendoValidator");
+
+
+    $("#carLoanUpdate").click(function () {
+        if (carValidation.validate()) {
+             var sendData = new FormData();
+            sendData.append("CarLoanId", $("#CarLoanId").val());
+            sendData.append("CitizenName", $("#CitizenName").val());
+            sendData.append("NID", $("#NID").val());
+            sendData.append("BirthId", $("#BirthId").val());
+            sendData.append("FatherName", $("#FatherName").val());
+            sendData.append("MotherName", $("#MotherName").val());
+            sendData.append("Age", $("#Age").val());
+            sendData.append("Division", $("#Division").val());
+            sendData.append("Contact", $("#Contact").val());
+            sendData.append("PresenrAddress", $("#PresenrAddress").val());
+            sendData.append("RelativeContact", $("#RelativeContact").val());
+            sendData.append("PassportNo", $("#PassportNo").val());
+            sendData.append("Email", $("#Email").val());
+            sendData.append("Gender", $("#Gender").val());
+            sendData.append("SSINumber", $("#SSINumber").val());
+            sendData.append("LoanAmmount", $("#LoanAmmount").val());
+            sendData.append("JobStatus", $("#JobStatus").val());
+            sendData.append("MonthlyIncome", $("#MonthlyIncome").val());
+            sendData.append("YearlyIncome", $("#YearlyIncome").val());
+            sendData.append("WorkingAddress", $("#WorkingAddress").val());
+            sendData.append("PersonDetails", $("#PersonDetails").val());
+            sendData.append("FamilyMembers", $("#FamilyMembers").val());
+            sendData.append("City", $("#City").val());
+            sendData.append("UpdatedBy", 1);
+
+             for (var i = 0; i < allMainFile.length; i++) {
+                sendData.append("files[" + i + "]", allMainFile[i]);
+            }
+            $.ajax({
+                url: '@Url.Action("UpdateCarEntry", "CarLoan")',
+                type: 'Post',
+                data: sendData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                    if (data === "Error") {
+                        alert("Failed");
+                       //notification.show("Adding new citizen was unsuccessful.", "upload-error");
+
+                    } else {
+                        //notification.show( "Local Citizen info has been successfully added.", "upload-success");
+                        alert("Success");
+                    }
+                },
+                error: function (error) {
+                    //notification.hide(); notification.setOptions({ autoHideAfter: 5000 });
+                   // notification.show("Upload unsuccessful", "upload-warning");
+                    alert("Upload Failed");
+                }
+            });
+        }
+
+    });
+</script>
+<style>
+    input:invalid {
+        box-shadow: 0 0 5px 1px red;
+    }
+
+    input:focus:invalid {
+        outline: none;
+    }
+    #imgUpload-0{
+        width: 200px;
+        height: 200px;
+        display: block;
+        text-align: center;
+    }
+    #imgUpload-1 {
+        width: 400px;
+        height: 250px;
+        display: block;
+        text-align: center;
+    }
+    #imgPreview-0 {
+        background-color: #e8e4d0;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #808080;
+        display: none;
+        overflow: hidden;
+    }
+
+    #imgPreview-0 img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        height: auto;
+    }
+    #imgPreview-1 {
+        background-color: #e8e4d0;
+        position: relative;
+        width: 400px;
+        height: 250px;
+        border: 1px solid #808080;
+        display: none;
+        overflow: hidden;
+    }
+
+        #imgPreview-1 img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            height: auto;
+        }
+    #lbl-0 {
+        text-align: center;
+        max-width: 90%;
+        width: 200px;
+        height: 200px;
+        vertical-align: middle;
+        border: 1px dashed blue;
+    }
+
+        #lbl-0 span {
+            color: #083bb5 !important;
+        }
+    #lbl-1 {
+        text-align: center;
+        max-width: 90%;
+        width: 400px;
+        height: 250px;
+        vertical-align: middle;
+        border: 1px dashed blue;
+    }
+
+        #lbl-1 span {
+            color: #083bb5 !important;
+        }
+    
+    
+    #UserImgClose-0 {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        float: right;
+        left: 6em;
+        bottom: 0em;
+        z-index: 9999;
+        margin-top: .3em;
+    }
+    #UserImgClose-1 {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        float: right;
+        left: 13em;
+        bottom: 0em;
+        z-index: 9999;
+        margin-top: .3em;
+    }
+    
+</style>

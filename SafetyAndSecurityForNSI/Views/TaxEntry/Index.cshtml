@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SafetyAndSecurityForNSI.Models.TaxEntryModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Tax Entry list/s</h4>
+
+
+<table class="table row">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SocialSecurityNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TaxYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonImage)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SocialSecurityNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportNo)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @if (item.PersonImage != null)
+            {
+                <img class="user-photo img-view-css" src="~/Image/Tax/@item.PersonImage" width="50" height="50" />
+            }           
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TaxId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TaxId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TaxId })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back", "UserView", "DashBoard")
+</div>
